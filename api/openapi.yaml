@@ -1,0 +1,1849 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: info@gemini-commerce.com
+    name: Gemini Team
+  license:
+    name: Gemini fair use license
+    url: https://gemini-commerce.com/api/fair-use-license
+  title: Payment Processor Service
+  version: v1
+servers:
+- url: https://payment-processor.api.gogemini.io/
+tags:
+- description: Payment Processor Description
+  externalDocs:
+    url: https://gemini-commerce.com/api/Payment Processor
+  name: Paymentprocessor
+paths:
+  /paymentprocessor.Paymentprocessor/AuthorizePayment:
+    post:
+      operationId: AuthorizePayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorAuthorizePaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorAuthorizePaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Authorize Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/CreatePaymentMethod:
+    post:
+      operationId: CreatePaymentMethod
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorCreatePaymentMethodRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Create Payment Method
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/FinalizePayment:
+    post:
+      operationId: FinalizePayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorFinalizePaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorFinalizePaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Finalize Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/GetAvailablePaymentMethod:
+    post:
+      operationId: GetAvailablePaymentMethod
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorGetAvailablePaymentMethodRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Get Available Payment Method
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/GetPaymentMethod:
+    post:
+      operationId: GetPaymentMethod
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorGetPaymentMethodRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Get Payment Method
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/GetPaymentMethodConfiguration:
+    post:
+      operationId: GetPaymentMethodConfiguration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorGetPaymentMethodConfigurationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorGetPaymentMethodConfigurationResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Get Payment Method Configuration
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/InitPayment:
+    post:
+      operationId: InitPayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorInitPaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorInitPaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Init Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/ListAvailablePaymentMethods:
+    post:
+      operationId: ListAvailablePaymentMethods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorListAvailablePaymentMethodsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorListAvailablePaymentMethodsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: List Available Payment Methods
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/ListPaymentMethods:
+    post:
+      operationId: ListPaymentMethods
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorListPaymentMethodsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorListPaymentMethodsResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: List Payment Methods
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/PerformPayment:
+    post:
+      operationId: PerformPayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorPerformPaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPerformPaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Perform Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/PerformRefund:
+    post:
+      operationId: PerformRefund
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorPerformRefundRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPerformRefundResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Perform Refund
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/UpdatePayment:
+    post:
+      operationId: UpdatePayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorUpdatePaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorUpdatePaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Update Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/UpdatePaymentMethod:
+    post:
+      operationId: UpdatePaymentMethod
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorUpdatePaymentMethodRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Update Payment Method
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+  /paymentprocessor.Paymentprocessor/VoidPayment:
+    post:
+      operationId: VoidPayment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/paymentprocessorVoidPaymentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentprocessorVoidPaymentResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Void Payment
+      tags:
+      - Paymentprocessor
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    AvailabilityContextCustomer:
+      properties:
+        segments:
+          items:
+            type: string
+          type: array
+        email:
+          type: string
+      type: object
+    ConditionAction:
+      default: DISALLOW
+      enum:
+      - DISALLOW
+      type: string
+    PaymentContextOrderInfo:
+      properties:
+        number:
+          type: string
+        grn:
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/paymentprocessorItem'
+          type: array
+      required:
+      - grn
+      - number
+      type: object
+    PaymentMethodRestrictionConditionCondition:
+      default: IN
+      enum:
+      - IN
+      - NOT_IN
+      type: string
+    paymentprocessorAuthorizePaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorPaymentContext'
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorAuthorizePaymentResponse:
+      example:
+        errorMessage: errorMessage
+        transaction:
+          paymentId: paymentId
+          childTransactions:
+          - null
+          - null
+          additionalInfo: additionalInfo
+          id: id
+          type: null
+      properties:
+        transaction:
+          $ref: '#/components/schemas/paymentprocessorTransaction'
+        errorMessage:
+          type: string
+      type: object
+    paymentprocessorAvailabilityContext:
+      properties:
+        shippingAddress:
+          $ref: '#/components/schemas/paymentprocessorAvailabilityContextPostalAddress'
+        billingAddress:
+          $ref: '#/components/schemas/paymentprocessorAvailabilityContextPostalAddress'
+        customer:
+          $ref: '#/components/schemas/AvailabilityContextCustomer'
+      type: object
+    paymentprocessorAvailabilityContextPostalAddress:
+      properties:
+        regionCode:
+          type: string
+        postalCode:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        addressLines:
+          items:
+            type: string
+          type: array
+        additionalInfo:
+          properties: {}
+          type: object
+      type: object
+    paymentprocessorCreatePaymentMethodRequest:
+      properties:
+        tenantId:
+          type: string
+        code:
+          title: unique identifier
+          type: string
+        title:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        label:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        enabled:
+          type: boolean
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        configuration:
+          properties: {}
+          type: object
+        isUpfront:
+          type: boolean
+        description:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        restrictions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethodRestriction'
+          type: array
+      required:
+      - code
+      - tenantId
+      - title
+      type: object
+    paymentprocessorCurrency:
+      default: XXX
+      description: "Stands for Albania, not all ;-)"
+      enum:
+      - XXX
+      - ALL
+      - DZD
+      - ARS
+      - AUD
+      - BSD
+      - BHD
+      - BDT
+      - AMD
+      - BBD
+      - BMD
+      - BTN
+      - BOB
+      - BWP
+      - BZD
+      - SBD
+      - BND
+      - MMK
+      - BIF
+      - KHR
+      - CAD
+      - CVE
+      - KYD
+      - LKR
+      - CLP
+      - CNY
+      - COP
+      - KMF
+      - CRC
+      - HRK
+      - CUP
+      - CZK
+      - DKK
+      - DOP
+      - SVC
+      - ETB
+      - ERN
+      - FKP
+      - FJD
+      - DJF
+      - GMD
+      - GIP
+      - GTQ
+      - GNF
+      - GYD
+      - HTG
+      - HNL
+      - HKD
+      - HUF
+      - ISK
+      - INR
+      - IDR
+      - IRR
+      - IQD
+      - ILS
+      - JMD
+      - JPY
+      - KZT
+      - JOD
+      - KES
+      - KPW
+      - KRW
+      - KWD
+      - KGS
+      - LAK
+      - LBP
+      - LSL
+      - LRD
+      - LYD
+      - LTL
+      - MOP
+      - MWK
+      - MYR
+      - MVR
+      - MRO
+      - MUR
+      - MXN
+      - MNT
+      - MDL
+      - MAD
+      - OMR
+      - NAD
+      - NPR
+      - ANG
+      - AWG
+      - VUV
+      - NZD
+      - NIO
+      - NGN
+      - NOK
+      - PKR
+      - PAB
+      - PGK
+      - PYG
+      - PEN
+      - PHP
+      - QAR
+      - RUB
+      - RWF
+      - SHP
+      - STD
+      - SAR
+      - SCR
+      - SLL
+      - SGD
+      - VND
+      - SOS
+      - ZAR
+      - SSP
+      - SZL
+      - SEK
+      - CHF
+      - SYP
+      - THB
+      - TOP
+      - TTD
+      - AED
+      - TND
+      - UGX
+      - MKD
+      - EGP
+      - GBP
+      - TZS
+      - USD
+      - UYU
+      - UZS
+      - WST
+      - YER
+      - TWD
+      - CUC
+      - ZWL
+      - TMT
+      - GHS
+      - VEF
+      - SDG
+      - UYI
+      - RSD
+      - MZN
+      - AZN
+      - RON
+      - CHE
+      - CHW
+      - TRY
+      - XAF
+      - XCD
+      - XOF
+      - XPF
+      - XBA
+      - XBB
+      - XBC
+      - XBD
+      - XAU
+      - XDR
+      - XAG
+      - XPT
+      - XPD
+      - XUA
+      - ZMW
+      - SRD
+      - MGA
+      - COU
+      - AFN
+      - TJS
+      - AOA
+      - BYR
+      - BGN
+      - CDF
+      - BAM
+      - EUR
+      - MXV
+      - UAH
+      - GEL
+      - BOV
+      - PLN
+      - BRL
+      - CLF
+      - XSU
+      - USN
+      title: |-
+        - XXX: XXX = 999; //Changed to 0 because proto3 requires the default to be 0
+         - ALL: XTS = 963; //Codes specifically reserved for testing purposes
+      type: string
+    paymentprocessorFinalizePaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        paymentId:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorPaymentContext'
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - code
+      - paymentId
+      - tenantId
+      type: object
+    paymentprocessorFinalizePaymentResponse:
+      example:
+        errorMessage: errorMessage
+        transaction:
+          paymentId: paymentId
+          childTransactions:
+          - null
+          - null
+          additionalInfo: additionalInfo
+          id: id
+          type: null
+      properties:
+        transaction:
+          $ref: '#/components/schemas/paymentprocessorTransaction'
+        errorMessage:
+          type: string
+      type: object
+    paymentprocessorGetAvailablePaymentMethodRequest:
+      properties:
+        tenantId:
+          type: string
+        code:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorAvailabilityContext'
+        authenticateMethod:
+          type: boolean
+      required:
+      - code
+      - context
+      - tenantId
+      type: object
+    paymentprocessorGetPaymentMethodConfigurationRequest:
+      properties:
+        tenantId:
+          type: string
+        code:
+          type: string
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorGetPaymentMethodConfigurationResponse:
+      example:
+        configuration: "{}"
+      properties:
+        configuration:
+          properties: {}
+          type: object
+      type: object
+    paymentprocessorGetPaymentMethodRequest:
+      properties:
+        tenantId:
+          type: string
+        code:
+          type: string
+        authenticateMethod:
+          type: boolean
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorInitPaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorPaymentContext'
+        code:
+          type: string
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorInitPaymentResponse:
+      example:
+        payload: payload
+        errorMessage: errorMessage
+      properties:
+        payload:
+          title: as json object
+          type: string
+        errorMessage:
+          type: string
+      type: object
+    paymentprocessorItem:
+      properties:
+        id:
+          type: string
+        productGrn:
+          type: string
+        qtyOrdered:
+          format: int64
+          type: integer
+        qtyCommitted:
+          format: int64
+          title: keep in sync with inventory qty_committed
+          type: integer
+        unitSalePrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        unitListPrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        unitBasePrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        unitVatAmount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        rowSalePrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        rowListPrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        rowVatAmount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        discountAmount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        rowBasePrice:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        vatPercentage:
+          format: float
+          title: The VAT percentage to show (not to be used for calculation)
+          type: number
+        vatInaccurate:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
+          type: boolean
+        vatCalculated:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
+          type: boolean
+        productName:
+          type: string
+        productCode:
+          type: string
+        productSku:
+          type: string
+        productOptions:
+          type: string
+        productImg:
+          title: asset grn
+          type: string
+        productData:
+          type: string
+        shipmentInfoReference:
+          type: string
+        promotionGrn:
+          items:
+            type: string
+          type: array
+        productIsVirtual:
+          type: boolean
+      type: object
+    paymentprocessorListAvailablePaymentMethodsRequest:
+      properties:
+        tenantId:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorAvailabilityContext'
+        authenticateMethods:
+          type: boolean
+      required:
+      - context
+      - tenantId
+      type: object
+    paymentprocessorListAvailablePaymentMethodsResponse:
+      example:
+        methods:
+        - amount:
+            micros: 0
+            units: units
+          code: code
+          additionalInfo: additionalInfo
+          description:
+            value:
+              key: value
+          restrictions:
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          currency: null
+          label:
+            value:
+              key: value
+          title:
+            value:
+              key: value
+          enabled: true
+          isUpfront: true
+        - amount:
+            micros: 0
+            units: units
+          code: code
+          additionalInfo: additionalInfo
+          description:
+            value:
+              key: value
+          restrictions:
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          currency: null
+          label:
+            value:
+              key: value
+          title:
+            value:
+              key: value
+          enabled: true
+          isUpfront: true
+      properties:
+        methods:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          type: array
+      type: object
+    paymentprocessorListPaymentMethodsRequest:
+      properties:
+        tenantId:
+          type: string
+        authenticateMethods:
+          type: boolean
+      required:
+      - tenantId
+      type: object
+    paymentprocessorListPaymentMethodsResponse:
+      example:
+        methods:
+        - amount:
+            micros: 0
+            units: units
+          code: code
+          additionalInfo: additionalInfo
+          description:
+            value:
+              key: value
+          restrictions:
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          currency: null
+          label:
+            value:
+              key: value
+          title:
+            value:
+              key: value
+          enabled: true
+          isUpfront: true
+        - amount:
+            micros: 0
+            units: units
+          code: code
+          additionalInfo: additionalInfo
+          description:
+            value:
+              key: value
+          restrictions:
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          - conditions:
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+            - condition: null
+              values:
+              - values
+              - values
+              contextPath: contextPath
+              action: null
+          currency: null
+          label:
+            value:
+              key: value
+          title:
+            value:
+              key: value
+          enabled: true
+          isUpfront: true
+      properties:
+        methods:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethod'
+          type: array
+      type: object
+    paymentprocessorLocalizedText:
+      example:
+        value:
+          key: value
+      properties:
+        value:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    paymentprocessorMoney:
+      example:
+        micros: 0
+        units: units
+      properties:
+        units:
+          description: |-
+            The whole units of the amount.
+            For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+          format: int64
+          type: string
+        micros:
+          description: |-
+            Number of micro (10^-6) units of the amount.
+            The value must be between -999,999 and +999,999 inclusive.
+            If `units` is positive, `micros` must be positive or zero.
+            If `units` is zero, `micros` can be positive, zero, or negative.
+            If `units` is negative, `micros` must be negative or zero.
+            For example $-1.75 is represented as `units`=-1 and `micros`=-750,000.
+          format: int32
+          type: integer
+      type: object
+    paymentprocessorPayment:
+      properties:
+        id:
+          type: string
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - code
+      - id
+      type: object
+    paymentprocessorPaymentContext:
+      properties:
+        billingAddress:
+          $ref: '#/components/schemas/paymentprocessorPostalAddress'
+        shippingAddress:
+          $ref: '#/components/schemas/paymentprocessorPostalAddress'
+        orderInfo:
+          $ref: '#/components/schemas/PaymentContextOrderInfo'
+      type: object
+    paymentprocessorPaymentMethod:
+      example:
+        amount:
+          micros: 0
+          units: units
+        code: code
+        additionalInfo: additionalInfo
+        description:
+          value:
+            key: value
+        restrictions:
+        - conditions:
+          - condition: null
+            values:
+            - values
+            - values
+            contextPath: contextPath
+            action: null
+          - condition: null
+            values:
+            - values
+            - values
+            contextPath: contextPath
+            action: null
+        - conditions:
+          - condition: null
+            values:
+            - values
+            - values
+            contextPath: contextPath
+            action: null
+          - condition: null
+            values:
+            - values
+            - values
+            contextPath: contextPath
+            action: null
+        currency: null
+        label:
+          value:
+            key: value
+        title:
+          value:
+            key: value
+        enabled: true
+        isUpfront: true
+      properties:
+        code:
+          title: unique identifier
+          type: string
+        title:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        label:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        enabled:
+          type: boolean
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        isUpfront:
+          type: boolean
+        description:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        restrictions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethodRestriction'
+          type: array
+      required:
+      - code
+      - title
+      type: object
+    paymentprocessorPaymentMethodRestriction:
+      example:
+        conditions:
+        - condition: null
+          values:
+          - values
+          - values
+          contextPath: contextPath
+          action: null
+        - condition: null
+          values:
+          - values
+          - values
+          contextPath: contextPath
+          action: null
+      properties:
+        conditions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethodRestrictionCondition'
+          type: array
+      type: object
+    paymentprocessorPaymentMethodRestrictionCondition:
+      example:
+        condition: null
+        values:
+        - values
+        - values
+        contextPath: contextPath
+        action: null
+      properties:
+        contextPath:
+          type: string
+        action:
+          $ref: '#/components/schemas/ConditionAction'
+        condition:
+          $ref: '#/components/schemas/PaymentMethodRestrictionConditionCondition'
+        values:
+          items:
+            type: string
+          type: array
+      type: object
+    paymentprocessorPerformPaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        paymentId:
+          type: string
+        context:
+          $ref: '#/components/schemas/paymentprocessorPaymentContext'
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - code
+      - paymentId
+      - tenantId
+      type: object
+    paymentprocessorPerformPaymentResponse:
+      example:
+        isUpfront: true
+      properties:
+        isUpfront:
+          type: boolean
+      type: object
+    paymentprocessorPerformRefundRequest:
+      properties:
+        tenantId:
+          type: string
+        refundId:
+          type: string
+        payment:
+          $ref: '#/components/schemas/paymentprocessorPayment'
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+      required:
+      - payment
+      - refundId
+      - tenantId
+      type: object
+    paymentprocessorPerformRefundResponse:
+      type: object
+    paymentprocessorPostalAddress:
+      description: |-
+        Represents a postal address, e.g. for postal delivery or payments addresses.
+        Given a postal address, a postal service can deliver items to a premise, P.O.
+        Box or similar.
+        It is not intended to model geographical locations (roads, towns,
+        mountains).
+
+        In typical usage an address would be created via user input or from importing
+        existing data, depending on the type of process.
+
+        Advice on address input / editing:
+         - Use an i18n-ready address widget such as
+           https://github.com/google/libaddressinput)
+        - Users should not be presented with UI elements for input or editing of
+          fields outside countries where that field is used.
+
+        For more guidance on how to use this schema, please see:
+        https://support.google.com/business/answer/6397478
+      properties:
+        revision:
+          description: |-
+            The schema revision of the `PostalAddress`. This must be set to 0, which is
+            the latest revision.
+
+            All new revisions **must** be backward compatible with old revisions.
+          format: int32
+          type: integer
+        regionCode:
+          description: |-
+            Required. CLDR region code of the country/region of the address. This
+            is never inferred and it is up to the user to ensure the value is
+            correct. See http://cldr.unicode.org/ and
+            http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+            for details. Example: "CH" for Switzerland.
+          type: string
+        languageCode:
+          description: |-
+            Optional. BCP-47 language code of the contents of this address (if
+            known). This is often the UI language of the input form or is expected
+            to match one of the languages used in the address' country/region, or their
+            transliterated equivalents.
+            This can affect formatting in certain countries, but is not critical
+            to the correctness of the data and will never affect any validation or
+            other non-formatting related operations.
+
+            If this value is not known, it should be omitted (rather than specifying a
+            possibly incorrect default).
+
+            Examples: "zh-Hant", "ja", "ja-Latn", "en".
+          type: string
+        postalCode:
+          description: |-
+            Optional. Postal code of the address. Not all countries use or require
+            postal codes to be present, but where they are used, they may trigger
+            additional validation with other parts of the address (e.g. state/zip
+            validation in the U.S.A.).
+          type: string
+        sortingCode:
+          description: |-
+            Optional. Additional, country-specific, sorting code. This is not used
+            in most regions. Where it is used, the value is either a string like
+            "CEDEX", optionally followed by a number (e.g. "CEDEX 7"), or just a number
+            alone, representing the "sector code" (Jamaica), "delivery area indicator"
+            (Malawi) or "post office indicator" (e.g. Côte d'Ivoire).
+          type: string
+        administrativeArea:
+          description: |-
+            Optional. Highest administrative subdivision which is used for postal
+            addresses of a country or region.
+            For example, this can be a state, a province, an oblast, or a prefecture.
+            Specifically, for Spain this is the province and not the autonomous
+            community (e.g. "Barcelona" and not "Catalonia").
+            Many countries don't use an administrative area in postal addresses. E.g.
+            in Switzerland this should be left unpopulated.
+          type: string
+        locality:
+          description: |-
+            Optional. Generally refers to the city/town portion of the address.
+            Examples: US city, IT comune, UK post town.
+            In regions of the world where localities are not well defined or do not fit
+            into this structure well, leave locality empty and use address_lines.
+          type: string
+        sublocality:
+          description: |-
+            Optional. Sublocality of the address.
+            For example, this can be neighborhoods, boroughs, districts.
+          type: string
+        addressLines:
+          description: |-
+            Unstructured address lines describing the lower levels of an address.
+
+            Because values in address_lines do not have type information and may
+            sometimes contain multiple values in a single field (e.g.
+            "Austin, TX"), it is important that the line order is clear. The order of
+            address lines should be "envelope order" for the country/region of the
+            address. In places where this can vary (e.g. Japan), address_language is
+            used to make it explicit (e.g. "ja" for large-to-small ordering and
+            "ja-Latn" or "en" for small-to-large). This way, the most specific line of
+            an address can be selected based on the language.
+
+            The minimum permitted structural representation of an address consists
+            of a region_code with all remaining information placed in the
+            address_lines. It would be possible to format such an address very
+            approximately without geocoding, but no semantic reasoning could be
+            made about any of the address components until it was at least
+            partially resolved.
+
+            Creating an address only containing a region_code and address_lines, and
+            then geocoding is the recommended way to handle completely unstructured
+            addresses (as opposed to guessing which parts of the address should be
+            localities or administrative areas).
+          items:
+            type: string
+          type: array
+        recipients:
+          description: |-
+            Optional. The recipient at the address.
+            This field may, under certain circumstances, contain multiline information.
+            For example, it might contain "care of" information.
+          items:
+            type: string
+          type: array
+        organization:
+          description: Optional. The name of the organization at the address.
+          type: string
+        phoneNumber:
+          description: Optional.
+          type: string
+        additionalInfo:
+          description: Optional.
+          properties: {}
+          type: object
+      type: object
+    paymentprocessorTransaction:
+      example:
+        paymentId: paymentId
+        childTransactions:
+        - null
+        - null
+        additionalInfo: additionalInfo
+        id: id
+        type: null
+      properties:
+        paymentId:
+          type: string
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/paymentprocessorTransactionType'
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        childTransactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - id
+      - paymentId
+      type: object
+    paymentprocessorTransactionType:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - AUTHORIZATION
+      - CAPTURE
+      - SALE
+      - REFUND
+      - VOID
+      - FAILED
+      - PENDING
+      - FRAUD
+      title: |-
+        - SALE: authorize and capture
+         - FAILED: failed with error
+         - PENDING: pending for payment provider
+         - FRAUD: fraud for payment provider
+      type: string
+    paymentprocessorUpdatePaymentMethodRequest:
+      properties:
+        tenantId:
+          type: string
+        code:
+          title: unique identifier
+          type: string
+        title:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        label:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        enabled:
+          type: boolean
+        amount:
+          $ref: '#/components/schemas/paymentprocessorMoney'
+        currency:
+          $ref: '#/components/schemas/paymentprocessorCurrency'
+        configuration:
+          properties: {}
+          type: object
+        isUpfront:
+          type: boolean
+        description:
+          $ref: '#/components/schemas/paymentprocessorLocalizedText'
+        restrictions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorPaymentMethodRestriction'
+          type: array
+        fieldMask:
+          title: https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-masks-in-update-operations
+          type: string
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorUpdatePaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        paymentId:
+          type: string
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - code
+      - paymentId
+      - tenantId
+      type: object
+    paymentprocessorUpdatePaymentResponse:
+      type: object
+    paymentprocessorVoidPaymentRequest:
+      properties:
+        tenantId:
+          type: string
+        paymentId:
+          title: update order payment if given
+          type: string
+        code:
+          description: "payment type stripe, paypal.."
+          type: string
+        additionalInfo:
+          title: additional information as json object
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/paymentprocessorTransaction'
+          type: array
+      required:
+      - code
+      - tenantId
+      type: object
+    paymentprocessorVoidPaymentResponse:
+      example:
+        errorMessage: errorMessage
+        transaction:
+          paymentId: paymentId
+          childTransactions:
+          - null
+          - null
+          additionalInfo: additionalInfo
+          id: id
+          type: null
+      properties:
+        transaction:
+          $ref: '#/components/schemas/paymentprocessorTransaction'
+        errorMessage:
+          type: string
+      type: object
+    protobufAny:
+      additionalProperties:
+        type: object
+      properties:
+        '@type':
+          type: string
+      type: object
+    protobufNullValue:
+      default: NULL_VALUE
+      description: |-
+        `NullValue` is a singleton enumeration to represent the null value for the
+        `Value` type union.
+
+         The JSON representation for `NullValue` is JSON `null`.
+
+         - NULL_VALUE: Null value.
+      enum:
+      - NULL_VALUE
+      type: string
+    rpcStatus:
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+      type: object
+  securitySchemes:
+    standardAuthorization:
+      flows: {}
+      type: oauth2
+x-original-swagger-version: "2.0"
