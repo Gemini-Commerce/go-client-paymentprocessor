@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Context**| [**PaymentprocessorPaymentContext**](PaymentprocessorPaymentContext.md) |   | [optional]
 **Code**| **string** | payment type stripe, paypal..  |
 **Amount**| [**PaymentprocessorMoney**](PaymentprocessorMoney.md) |   | [optional]
-**Currency**| [**PaymentprocessorCurrency**](PaymentprocessorCurrency.md) |  for more information please, see Model/PaymentprocessorCurrency.php  | [optional] [default to XXX]
+**Currency**| [**PaymentprocessorCurrency**](PaymentprocessorCurrency.md) |  for more information please, see Model/PaymentprocessorCurrency.php  | [optional] [default to PAYMENTPROCESSORCURRENCY_XXX]
 **AdditionalInfo**| **string** |   | [optional]
 **Transactions**| [**[]PaymentprocessorTransaction**](PaymentprocessorTransaction.md) |   | [optional]
 

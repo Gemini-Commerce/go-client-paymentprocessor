@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Label**| [**PaymentprocessorLocalizedText**](PaymentprocessorLocalizedText.md) |   | [optional]
 **Enabled**| **bool** |   | [optional]
 **Amount**| [**PaymentprocessorMoney**](PaymentprocessorMoney.md) |   | [optional]
-**Currency**| [**PaymentprocessorCurrency**](PaymentprocessorCurrency.md) |  for more information please, see Model/PaymentprocessorCurrency.php  | [optional] [default to XXX]
+**Currency**| [**PaymentprocessorCurrency**](PaymentprocessorCurrency.md) |  for more information please, see Model/PaymentprocessorCurrency.php  | [optional] [default to PAYMENTPROCESSORCURRENCY_XXX]
 **Configuration**| **map[string]interface{}** |   | [optional]
 **IsUpfront**| **bool** |   | [optional]
 **Description**| [**PaymentprocessorLocalizedText**](PaymentprocessorLocalizedText.md) |   | [optional]

@@ -21,8 +21,8 @@ type PaymentMethodRestrictionConditionCondition string
 
 // List of PaymentMethodRestrictionConditionCondition
 const (
-	IN PaymentMethodRestrictionConditionCondition = "IN"
-	NOT_IN PaymentMethodRestrictionConditionCondition = "NOT_IN"
+	PAYMENTMETHODRESTRICTIONCONDITIONCONDITION_IN PaymentMethodRestrictionConditionCondition = "IN"
+	PAYMENTMETHODRESTRICTIONCONDITIONCONDITION_NOT_IN PaymentMethodRestrictionConditionCondition = "NOT_IN"
 )
 
 // All allowed values of PaymentMethodRestrictionConditionCondition enum

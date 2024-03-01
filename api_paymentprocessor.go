@@ -23,18 +23,18 @@ import (
 // PaymentprocessorAPIService PaymentprocessorAPI service
 type PaymentprocessorAPIService service
 
-type ApiAuthorizePaymentRequest struct {
+type PaymentprocessorAPIAuthorizePaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorAuthorizePaymentRequest
 }
 
-func (r ApiAuthorizePaymentRequest) Body(body PaymentprocessorAuthorizePaymentRequest) ApiAuthorizePaymentRequest {
+func (r PaymentprocessorAPIAuthorizePaymentRequest) Body(body PaymentprocessorAuthorizePaymentRequest) PaymentprocessorAPIAuthorizePaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAuthorizePaymentRequest) Execute() (*PaymentprocessorAuthorizePaymentResponse, *http.Response, error) {
+func (r PaymentprocessorAPIAuthorizePaymentRequest) Execute() (*PaymentprocessorAuthorizePaymentResponse, *http.Response, error) {
 	return r.ApiService.AuthorizePaymentExecute(r)
 }
 
@@ -42,10 +42,10 @@ func (r ApiAuthorizePaymentRequest) Execute() (*PaymentprocessorAuthorizePayment
 AuthorizePayment Authorize Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAuthorizePaymentRequest
+ @return PaymentprocessorAPIAuthorizePaymentRequest
 */
-func (a *PaymentprocessorAPIService) AuthorizePayment(ctx context.Context) ApiAuthorizePaymentRequest {
-	return ApiAuthorizePaymentRequest{
+func (a *PaymentprocessorAPIService) AuthorizePayment(ctx context.Context) PaymentprocessorAPIAuthorizePaymentRequest {
+	return PaymentprocessorAPIAuthorizePaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -53,7 +53,7 @@ func (a *PaymentprocessorAPIService) AuthorizePayment(ctx context.Context) ApiAu
 
 // Execute executes the request
 //  @return PaymentprocessorAuthorizePaymentResponse
-func (a *PaymentprocessorAPIService) AuthorizePaymentExecute(r ApiAuthorizePaymentRequest) (*PaymentprocessorAuthorizePaymentResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) AuthorizePaymentExecute(r PaymentprocessorAPIAuthorizePaymentRequest) (*PaymentprocessorAuthorizePaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -94,6 +94,20 @@ func (a *PaymentprocessorAPIService) AuthorizePaymentExecute(r ApiAuthorizePayme
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -161,18 +175,18 @@ func (a *PaymentprocessorAPIService) AuthorizePaymentExecute(r ApiAuthorizePayme
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreatePaymentMethodRequest struct {
+type PaymentprocessorAPICreatePaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorCreatePaymentMethodRequest
 }
 
-func (r ApiCreatePaymentMethodRequest) Body(body PaymentprocessorCreatePaymentMethodRequest) ApiCreatePaymentMethodRequest {
+func (r PaymentprocessorAPICreatePaymentMethodRequest) Body(body PaymentprocessorCreatePaymentMethodRequest) PaymentprocessorAPICreatePaymentMethodRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (r PaymentprocessorAPICreatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	return r.ApiService.CreatePaymentMethodExecute(r)
 }
 
@@ -180,10 +194,10 @@ func (r ApiCreatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod
 CreatePaymentMethod Create Payment Method
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreatePaymentMethodRequest
+ @return PaymentprocessorAPICreatePaymentMethodRequest
 */
-func (a *PaymentprocessorAPIService) CreatePaymentMethod(ctx context.Context) ApiCreatePaymentMethodRequest {
-	return ApiCreatePaymentMethodRequest{
+func (a *PaymentprocessorAPIService) CreatePaymentMethod(ctx context.Context) PaymentprocessorAPICreatePaymentMethodRequest {
+	return PaymentprocessorAPICreatePaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -191,7 +205,7 @@ func (a *PaymentprocessorAPIService) CreatePaymentMethod(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return PaymentprocessorPaymentMethod
-func (a *PaymentprocessorAPIService) CreatePaymentMethodExecute(r ApiCreatePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (a *PaymentprocessorAPIService) CreatePaymentMethodExecute(r PaymentprocessorAPICreatePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -232,6 +246,20 @@ func (a *PaymentprocessorAPIService) CreatePaymentMethodExecute(r ApiCreatePayme
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -299,18 +327,18 @@ func (a *PaymentprocessorAPIService) CreatePaymentMethodExecute(r ApiCreatePayme
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiFinalizePaymentRequest struct {
+type PaymentprocessorAPIFinalizePaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorFinalizePaymentRequest
 }
 
-func (r ApiFinalizePaymentRequest) Body(body PaymentprocessorFinalizePaymentRequest) ApiFinalizePaymentRequest {
+func (r PaymentprocessorAPIFinalizePaymentRequest) Body(body PaymentprocessorFinalizePaymentRequest) PaymentprocessorAPIFinalizePaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiFinalizePaymentRequest) Execute() (*PaymentprocessorFinalizePaymentResponse, *http.Response, error) {
+func (r PaymentprocessorAPIFinalizePaymentRequest) Execute() (*PaymentprocessorFinalizePaymentResponse, *http.Response, error) {
 	return r.ApiService.FinalizePaymentExecute(r)
 }
 
@@ -318,10 +346,10 @@ func (r ApiFinalizePaymentRequest) Execute() (*PaymentprocessorFinalizePaymentRe
 FinalizePayment Finalize Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFinalizePaymentRequest
+ @return PaymentprocessorAPIFinalizePaymentRequest
 */
-func (a *PaymentprocessorAPIService) FinalizePayment(ctx context.Context) ApiFinalizePaymentRequest {
-	return ApiFinalizePaymentRequest{
+func (a *PaymentprocessorAPIService) FinalizePayment(ctx context.Context) PaymentprocessorAPIFinalizePaymentRequest {
+	return PaymentprocessorAPIFinalizePaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -329,7 +357,7 @@ func (a *PaymentprocessorAPIService) FinalizePayment(ctx context.Context) ApiFin
 
 // Execute executes the request
 //  @return PaymentprocessorFinalizePaymentResponse
-func (a *PaymentprocessorAPIService) FinalizePaymentExecute(r ApiFinalizePaymentRequest) (*PaymentprocessorFinalizePaymentResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) FinalizePaymentExecute(r PaymentprocessorAPIFinalizePaymentRequest) (*PaymentprocessorFinalizePaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -370,6 +398,20 @@ func (a *PaymentprocessorAPIService) FinalizePaymentExecute(r ApiFinalizePayment
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -437,18 +479,18 @@ func (a *PaymentprocessorAPIService) FinalizePaymentExecute(r ApiFinalizePayment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAvailablePaymentMethodRequest struct {
+type PaymentprocessorAPIGetAvailablePaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorGetAvailablePaymentMethodRequest
 }
 
-func (r ApiGetAvailablePaymentMethodRequest) Body(body PaymentprocessorGetAvailablePaymentMethodRequest) ApiGetAvailablePaymentMethodRequest {
+func (r PaymentprocessorAPIGetAvailablePaymentMethodRequest) Body(body PaymentprocessorGetAvailablePaymentMethodRequest) PaymentprocessorAPIGetAvailablePaymentMethodRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiGetAvailablePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (r PaymentprocessorAPIGetAvailablePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	return r.ApiService.GetAvailablePaymentMethodExecute(r)
 }
 
@@ -456,10 +498,10 @@ func (r ApiGetAvailablePaymentMethodRequest) Execute() (*PaymentprocessorPayment
 GetAvailablePaymentMethod Get Available Payment Method
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAvailablePaymentMethodRequest
+ @return PaymentprocessorAPIGetAvailablePaymentMethodRequest
 */
-func (a *PaymentprocessorAPIService) GetAvailablePaymentMethod(ctx context.Context) ApiGetAvailablePaymentMethodRequest {
-	return ApiGetAvailablePaymentMethodRequest{
+func (a *PaymentprocessorAPIService) GetAvailablePaymentMethod(ctx context.Context) PaymentprocessorAPIGetAvailablePaymentMethodRequest {
+	return PaymentprocessorAPIGetAvailablePaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -467,7 +509,7 @@ func (a *PaymentprocessorAPIService) GetAvailablePaymentMethod(ctx context.Conte
 
 // Execute executes the request
 //  @return PaymentprocessorPaymentMethod
-func (a *PaymentprocessorAPIService) GetAvailablePaymentMethodExecute(r ApiGetAvailablePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (a *PaymentprocessorAPIService) GetAvailablePaymentMethodExecute(r PaymentprocessorAPIGetAvailablePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -508,6 +550,20 @@ func (a *PaymentprocessorAPIService) GetAvailablePaymentMethodExecute(r ApiGetAv
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -575,18 +631,18 @@ func (a *PaymentprocessorAPIService) GetAvailablePaymentMethodExecute(r ApiGetAv
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPaymentMethodRequest struct {
+type PaymentprocessorAPIGetPaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorGetPaymentMethodRequest
 }
 
-func (r ApiGetPaymentMethodRequest) Body(body PaymentprocessorGetPaymentMethodRequest) ApiGetPaymentMethodRequest {
+func (r PaymentprocessorAPIGetPaymentMethodRequest) Body(body PaymentprocessorGetPaymentMethodRequest) PaymentprocessorAPIGetPaymentMethodRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiGetPaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (r PaymentprocessorAPIGetPaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	return r.ApiService.GetPaymentMethodExecute(r)
 }
 
@@ -594,10 +650,10 @@ func (r ApiGetPaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *
 GetPaymentMethod Get Payment Method
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPaymentMethodRequest
+ @return PaymentprocessorAPIGetPaymentMethodRequest
 */
-func (a *PaymentprocessorAPIService) GetPaymentMethod(ctx context.Context) ApiGetPaymentMethodRequest {
-	return ApiGetPaymentMethodRequest{
+func (a *PaymentprocessorAPIService) GetPaymentMethod(ctx context.Context) PaymentprocessorAPIGetPaymentMethodRequest {
+	return PaymentprocessorAPIGetPaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -605,7 +661,7 @@ func (a *PaymentprocessorAPIService) GetPaymentMethod(ctx context.Context) ApiGe
 
 // Execute executes the request
 //  @return PaymentprocessorPaymentMethod
-func (a *PaymentprocessorAPIService) GetPaymentMethodExecute(r ApiGetPaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (a *PaymentprocessorAPIService) GetPaymentMethodExecute(r PaymentprocessorAPIGetPaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -646,6 +702,20 @@ func (a *PaymentprocessorAPIService) GetPaymentMethodExecute(r ApiGetPaymentMeth
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -713,18 +783,18 @@ func (a *PaymentprocessorAPIService) GetPaymentMethodExecute(r ApiGetPaymentMeth
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPaymentMethodConfigurationRequest struct {
+type PaymentprocessorAPIGetPaymentMethodConfigurationRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorGetPaymentMethodConfigurationRequest
 }
 
-func (r ApiGetPaymentMethodConfigurationRequest) Body(body PaymentprocessorGetPaymentMethodConfigurationRequest) ApiGetPaymentMethodConfigurationRequest {
+func (r PaymentprocessorAPIGetPaymentMethodConfigurationRequest) Body(body PaymentprocessorGetPaymentMethodConfigurationRequest) PaymentprocessorAPIGetPaymentMethodConfigurationRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiGetPaymentMethodConfigurationRequest) Execute() (*PaymentprocessorGetPaymentMethodConfigurationResponse, *http.Response, error) {
+func (r PaymentprocessorAPIGetPaymentMethodConfigurationRequest) Execute() (*PaymentprocessorGetPaymentMethodConfigurationResponse, *http.Response, error) {
 	return r.ApiService.GetPaymentMethodConfigurationExecute(r)
 }
 
@@ -732,10 +802,10 @@ func (r ApiGetPaymentMethodConfigurationRequest) Execute() (*PaymentprocessorGet
 GetPaymentMethodConfiguration Get Payment Method Configuration
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPaymentMethodConfigurationRequest
+ @return PaymentprocessorAPIGetPaymentMethodConfigurationRequest
 */
-func (a *PaymentprocessorAPIService) GetPaymentMethodConfiguration(ctx context.Context) ApiGetPaymentMethodConfigurationRequest {
-	return ApiGetPaymentMethodConfigurationRequest{
+func (a *PaymentprocessorAPIService) GetPaymentMethodConfiguration(ctx context.Context) PaymentprocessorAPIGetPaymentMethodConfigurationRequest {
+	return PaymentprocessorAPIGetPaymentMethodConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -743,7 +813,7 @@ func (a *PaymentprocessorAPIService) GetPaymentMethodConfiguration(ctx context.C
 
 // Execute executes the request
 //  @return PaymentprocessorGetPaymentMethodConfigurationResponse
-func (a *PaymentprocessorAPIService) GetPaymentMethodConfigurationExecute(r ApiGetPaymentMethodConfigurationRequest) (*PaymentprocessorGetPaymentMethodConfigurationResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) GetPaymentMethodConfigurationExecute(r PaymentprocessorAPIGetPaymentMethodConfigurationRequest) (*PaymentprocessorGetPaymentMethodConfigurationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -784,6 +854,20 @@ func (a *PaymentprocessorAPIService) GetPaymentMethodConfigurationExecute(r ApiG
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -851,18 +935,18 @@ func (a *PaymentprocessorAPIService) GetPaymentMethodConfigurationExecute(r ApiG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInitPaymentRequest struct {
+type PaymentprocessorAPIInitPaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorInitPaymentRequest
 }
 
-func (r ApiInitPaymentRequest) Body(body PaymentprocessorInitPaymentRequest) ApiInitPaymentRequest {
+func (r PaymentprocessorAPIInitPaymentRequest) Body(body PaymentprocessorInitPaymentRequest) PaymentprocessorAPIInitPaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitPaymentRequest) Execute() (*PaymentprocessorInitPaymentResponse, *http.Response, error) {
+func (r PaymentprocessorAPIInitPaymentRequest) Execute() (*PaymentprocessorInitPaymentResponse, *http.Response, error) {
 	return r.ApiService.InitPaymentExecute(r)
 }
 
@@ -870,10 +954,10 @@ func (r ApiInitPaymentRequest) Execute() (*PaymentprocessorInitPaymentResponse, 
 InitPayment Init Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiInitPaymentRequest
+ @return PaymentprocessorAPIInitPaymentRequest
 */
-func (a *PaymentprocessorAPIService) InitPayment(ctx context.Context) ApiInitPaymentRequest {
-	return ApiInitPaymentRequest{
+func (a *PaymentprocessorAPIService) InitPayment(ctx context.Context) PaymentprocessorAPIInitPaymentRequest {
+	return PaymentprocessorAPIInitPaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -881,7 +965,7 @@ func (a *PaymentprocessorAPIService) InitPayment(ctx context.Context) ApiInitPay
 
 // Execute executes the request
 //  @return PaymentprocessorInitPaymentResponse
-func (a *PaymentprocessorAPIService) InitPaymentExecute(r ApiInitPaymentRequest) (*PaymentprocessorInitPaymentResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) InitPaymentExecute(r PaymentprocessorAPIInitPaymentRequest) (*PaymentprocessorInitPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -922,6 +1006,20 @@ func (a *PaymentprocessorAPIService) InitPaymentExecute(r ApiInitPaymentRequest)
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -989,18 +1087,18 @@ func (a *PaymentprocessorAPIService) InitPaymentExecute(r ApiInitPaymentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAvailablePaymentMethodsRequest struct {
+type PaymentprocessorAPIListAvailablePaymentMethodsRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorListAvailablePaymentMethodsRequest
 }
 
-func (r ApiListAvailablePaymentMethodsRequest) Body(body PaymentprocessorListAvailablePaymentMethodsRequest) ApiListAvailablePaymentMethodsRequest {
+func (r PaymentprocessorAPIListAvailablePaymentMethodsRequest) Body(body PaymentprocessorListAvailablePaymentMethodsRequest) PaymentprocessorAPIListAvailablePaymentMethodsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiListAvailablePaymentMethodsRequest) Execute() (*PaymentprocessorListAvailablePaymentMethodsResponse, *http.Response, error) {
+func (r PaymentprocessorAPIListAvailablePaymentMethodsRequest) Execute() (*PaymentprocessorListAvailablePaymentMethodsResponse, *http.Response, error) {
 	return r.ApiService.ListAvailablePaymentMethodsExecute(r)
 }
 
@@ -1008,10 +1106,10 @@ func (r ApiListAvailablePaymentMethodsRequest) Execute() (*PaymentprocessorListA
 ListAvailablePaymentMethods List Available Payment Methods
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListAvailablePaymentMethodsRequest
+ @return PaymentprocessorAPIListAvailablePaymentMethodsRequest
 */
-func (a *PaymentprocessorAPIService) ListAvailablePaymentMethods(ctx context.Context) ApiListAvailablePaymentMethodsRequest {
-	return ApiListAvailablePaymentMethodsRequest{
+func (a *PaymentprocessorAPIService) ListAvailablePaymentMethods(ctx context.Context) PaymentprocessorAPIListAvailablePaymentMethodsRequest {
+	return PaymentprocessorAPIListAvailablePaymentMethodsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1019,7 +1117,7 @@ func (a *PaymentprocessorAPIService) ListAvailablePaymentMethods(ctx context.Con
 
 // Execute executes the request
 //  @return PaymentprocessorListAvailablePaymentMethodsResponse
-func (a *PaymentprocessorAPIService) ListAvailablePaymentMethodsExecute(r ApiListAvailablePaymentMethodsRequest) (*PaymentprocessorListAvailablePaymentMethodsResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) ListAvailablePaymentMethodsExecute(r PaymentprocessorAPIListAvailablePaymentMethodsRequest) (*PaymentprocessorListAvailablePaymentMethodsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1060,6 +1158,20 @@ func (a *PaymentprocessorAPIService) ListAvailablePaymentMethodsExecute(r ApiLis
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1127,18 +1239,18 @@ func (a *PaymentprocessorAPIService) ListAvailablePaymentMethodsExecute(r ApiLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListPaymentMethodsRequest struct {
+type PaymentprocessorAPIListPaymentMethodsRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorListPaymentMethodsRequest
 }
 
-func (r ApiListPaymentMethodsRequest) Body(body PaymentprocessorListPaymentMethodsRequest) ApiListPaymentMethodsRequest {
+func (r PaymentprocessorAPIListPaymentMethodsRequest) Body(body PaymentprocessorListPaymentMethodsRequest) PaymentprocessorAPIListPaymentMethodsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiListPaymentMethodsRequest) Execute() (*PaymentprocessorListPaymentMethodsResponse, *http.Response, error) {
+func (r PaymentprocessorAPIListPaymentMethodsRequest) Execute() (*PaymentprocessorListPaymentMethodsResponse, *http.Response, error) {
 	return r.ApiService.ListPaymentMethodsExecute(r)
 }
 
@@ -1146,10 +1258,10 @@ func (r ApiListPaymentMethodsRequest) Execute() (*PaymentprocessorListPaymentMet
 ListPaymentMethods List Payment Methods
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPaymentMethodsRequest
+ @return PaymentprocessorAPIListPaymentMethodsRequest
 */
-func (a *PaymentprocessorAPIService) ListPaymentMethods(ctx context.Context) ApiListPaymentMethodsRequest {
-	return ApiListPaymentMethodsRequest{
+func (a *PaymentprocessorAPIService) ListPaymentMethods(ctx context.Context) PaymentprocessorAPIListPaymentMethodsRequest {
+	return PaymentprocessorAPIListPaymentMethodsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1157,7 +1269,7 @@ func (a *PaymentprocessorAPIService) ListPaymentMethods(ctx context.Context) Api
 
 // Execute executes the request
 //  @return PaymentprocessorListPaymentMethodsResponse
-func (a *PaymentprocessorAPIService) ListPaymentMethodsExecute(r ApiListPaymentMethodsRequest) (*PaymentprocessorListPaymentMethodsResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) ListPaymentMethodsExecute(r PaymentprocessorAPIListPaymentMethodsRequest) (*PaymentprocessorListPaymentMethodsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1198,6 +1310,20 @@ func (a *PaymentprocessorAPIService) ListPaymentMethodsExecute(r ApiListPaymentM
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1265,18 +1391,18 @@ func (a *PaymentprocessorAPIService) ListPaymentMethodsExecute(r ApiListPaymentM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPerformPaymentRequest struct {
+type PaymentprocessorAPIPerformPaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorPerformPaymentRequest
 }
 
-func (r ApiPerformPaymentRequest) Body(body PaymentprocessorPerformPaymentRequest) ApiPerformPaymentRequest {
+func (r PaymentprocessorAPIPerformPaymentRequest) Body(body PaymentprocessorPerformPaymentRequest) PaymentprocessorAPIPerformPaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPerformPaymentRequest) Execute() (*PaymentprocessorPerformPaymentResponse, *http.Response, error) {
+func (r PaymentprocessorAPIPerformPaymentRequest) Execute() (*PaymentprocessorPerformPaymentResponse, *http.Response, error) {
 	return r.ApiService.PerformPaymentExecute(r)
 }
 
@@ -1284,10 +1410,10 @@ func (r ApiPerformPaymentRequest) Execute() (*PaymentprocessorPerformPaymentResp
 PerformPayment Perform Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPerformPaymentRequest
+ @return PaymentprocessorAPIPerformPaymentRequest
 */
-func (a *PaymentprocessorAPIService) PerformPayment(ctx context.Context) ApiPerformPaymentRequest {
-	return ApiPerformPaymentRequest{
+func (a *PaymentprocessorAPIService) PerformPayment(ctx context.Context) PaymentprocessorAPIPerformPaymentRequest {
+	return PaymentprocessorAPIPerformPaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1295,7 +1421,7 @@ func (a *PaymentprocessorAPIService) PerformPayment(ctx context.Context) ApiPerf
 
 // Execute executes the request
 //  @return PaymentprocessorPerformPaymentResponse
-func (a *PaymentprocessorAPIService) PerformPaymentExecute(r ApiPerformPaymentRequest) (*PaymentprocessorPerformPaymentResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) PerformPaymentExecute(r PaymentprocessorAPIPerformPaymentRequest) (*PaymentprocessorPerformPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1336,6 +1462,20 @@ func (a *PaymentprocessorAPIService) PerformPaymentExecute(r ApiPerformPaymentRe
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1403,18 +1543,18 @@ func (a *PaymentprocessorAPIService) PerformPaymentExecute(r ApiPerformPaymentRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPerformRefundRequest struct {
+type PaymentprocessorAPIPerformRefundRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorPerformRefundRequest
 }
 
-func (r ApiPerformRefundRequest) Body(body PaymentprocessorPerformRefundRequest) ApiPerformRefundRequest {
+func (r PaymentprocessorAPIPerformRefundRequest) Body(body PaymentprocessorPerformRefundRequest) PaymentprocessorAPIPerformRefundRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPerformRefundRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r PaymentprocessorAPIPerformRefundRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PerformRefundExecute(r)
 }
 
@@ -1422,10 +1562,10 @@ func (r ApiPerformRefundRequest) Execute() (map[string]interface{}, *http.Respon
 PerformRefund Perform Refund
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPerformRefundRequest
+ @return PaymentprocessorAPIPerformRefundRequest
 */
-func (a *PaymentprocessorAPIService) PerformRefund(ctx context.Context) ApiPerformRefundRequest {
-	return ApiPerformRefundRequest{
+func (a *PaymentprocessorAPIService) PerformRefund(ctx context.Context) PaymentprocessorAPIPerformRefundRequest {
+	return PaymentprocessorAPIPerformRefundRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1433,7 +1573,7 @@ func (a *PaymentprocessorAPIService) PerformRefund(ctx context.Context) ApiPerfo
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *PaymentprocessorAPIService) PerformRefundExecute(r ApiPerformRefundRequest) (map[string]interface{}, *http.Response, error) {
+func (a *PaymentprocessorAPIService) PerformRefundExecute(r PaymentprocessorAPIPerformRefundRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1474,6 +1614,20 @@ func (a *PaymentprocessorAPIService) PerformRefundExecute(r ApiPerformRefundRequ
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1541,18 +1695,18 @@ func (a *PaymentprocessorAPIService) PerformRefundExecute(r ApiPerformRefundRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePaymentRequest struct {
+type PaymentprocessorAPIUpdatePaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorUpdatePaymentRequest
 }
 
-func (r ApiUpdatePaymentRequest) Body(body PaymentprocessorUpdatePaymentRequest) ApiUpdatePaymentRequest {
+func (r PaymentprocessorAPIUpdatePaymentRequest) Body(body PaymentprocessorUpdatePaymentRequest) PaymentprocessorAPIUpdatePaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePaymentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r PaymentprocessorAPIUpdatePaymentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.UpdatePaymentExecute(r)
 }
 
@@ -1560,10 +1714,10 @@ func (r ApiUpdatePaymentRequest) Execute() (map[string]interface{}, *http.Respon
 UpdatePayment Update Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdatePaymentRequest
+ @return PaymentprocessorAPIUpdatePaymentRequest
 */
-func (a *PaymentprocessorAPIService) UpdatePayment(ctx context.Context) ApiUpdatePaymentRequest {
-	return ApiUpdatePaymentRequest{
+func (a *PaymentprocessorAPIService) UpdatePayment(ctx context.Context) PaymentprocessorAPIUpdatePaymentRequest {
+	return PaymentprocessorAPIUpdatePaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1571,7 +1725,7 @@ func (a *PaymentprocessorAPIService) UpdatePayment(ctx context.Context) ApiUpdat
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *PaymentprocessorAPIService) UpdatePaymentExecute(r ApiUpdatePaymentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *PaymentprocessorAPIService) UpdatePaymentExecute(r PaymentprocessorAPIUpdatePaymentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1612,6 +1766,20 @@ func (a *PaymentprocessorAPIService) UpdatePaymentExecute(r ApiUpdatePaymentRequ
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1679,18 +1847,18 @@ func (a *PaymentprocessorAPIService) UpdatePaymentExecute(r ApiUpdatePaymentRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePaymentMethodRequest struct {
+type PaymentprocessorAPIUpdatePaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorUpdatePaymentMethodRequest
 }
 
-func (r ApiUpdatePaymentMethodRequest) Body(body PaymentprocessorUpdatePaymentMethodRequest) ApiUpdatePaymentMethodRequest {
+func (r PaymentprocessorAPIUpdatePaymentMethodRequest) Body(body PaymentprocessorUpdatePaymentMethodRequest) PaymentprocessorAPIUpdatePaymentMethodRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (r PaymentprocessorAPIUpdatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	return r.ApiService.UpdatePaymentMethodExecute(r)
 }
 
@@ -1698,10 +1866,10 @@ func (r ApiUpdatePaymentMethodRequest) Execute() (*PaymentprocessorPaymentMethod
 UpdatePaymentMethod Update Payment Method
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdatePaymentMethodRequest
+ @return PaymentprocessorAPIUpdatePaymentMethodRequest
 */
-func (a *PaymentprocessorAPIService) UpdatePaymentMethod(ctx context.Context) ApiUpdatePaymentMethodRequest {
-	return ApiUpdatePaymentMethodRequest{
+func (a *PaymentprocessorAPIService) UpdatePaymentMethod(ctx context.Context) PaymentprocessorAPIUpdatePaymentMethodRequest {
+	return PaymentprocessorAPIUpdatePaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1709,7 +1877,7 @@ func (a *PaymentprocessorAPIService) UpdatePaymentMethod(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return PaymentprocessorPaymentMethod
-func (a *PaymentprocessorAPIService) UpdatePaymentMethodExecute(r ApiUpdatePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
+func (a *PaymentprocessorAPIService) UpdatePaymentMethodExecute(r PaymentprocessorAPIUpdatePaymentMethodRequest) (*PaymentprocessorPaymentMethod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1750,6 +1918,20 @@ func (a *PaymentprocessorAPIService) UpdatePaymentMethodExecute(r ApiUpdatePayme
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1817,18 +1999,18 @@ func (a *PaymentprocessorAPIService) UpdatePaymentMethodExecute(r ApiUpdatePayme
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiVoidPaymentRequest struct {
+type PaymentprocessorAPIVoidPaymentRequest struct {
 	ctx context.Context
 	ApiService *PaymentprocessorAPIService
 	body *PaymentprocessorVoidPaymentRequest
 }
 
-func (r ApiVoidPaymentRequest) Body(body PaymentprocessorVoidPaymentRequest) ApiVoidPaymentRequest {
+func (r PaymentprocessorAPIVoidPaymentRequest) Body(body PaymentprocessorVoidPaymentRequest) PaymentprocessorAPIVoidPaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiVoidPaymentRequest) Execute() (*PaymentprocessorVoidPaymentResponse, *http.Response, error) {
+func (r PaymentprocessorAPIVoidPaymentRequest) Execute() (*PaymentprocessorVoidPaymentResponse, *http.Response, error) {
 	return r.ApiService.VoidPaymentExecute(r)
 }
 
@@ -1836,10 +2018,10 @@ func (r ApiVoidPaymentRequest) Execute() (*PaymentprocessorVoidPaymentResponse, 
 VoidPayment Void Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVoidPaymentRequest
+ @return PaymentprocessorAPIVoidPaymentRequest
 */
-func (a *PaymentprocessorAPIService) VoidPayment(ctx context.Context) ApiVoidPaymentRequest {
-	return ApiVoidPaymentRequest{
+func (a *PaymentprocessorAPIService) VoidPayment(ctx context.Context) PaymentprocessorAPIVoidPaymentRequest {
+	return PaymentprocessorAPIVoidPaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1847,7 +2029,7 @@ func (a *PaymentprocessorAPIService) VoidPayment(ctx context.Context) ApiVoidPay
 
 // Execute executes the request
 //  @return PaymentprocessorVoidPaymentResponse
-func (a *PaymentprocessorAPIService) VoidPaymentExecute(r ApiVoidPaymentRequest) (*PaymentprocessorVoidPaymentResponse, *http.Response, error) {
+func (a *PaymentprocessorAPIService) VoidPaymentExecute(r PaymentprocessorAPIVoidPaymentRequest) (*PaymentprocessorVoidPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1888,6 +2070,20 @@ func (a *PaymentprocessorAPIService) VoidPaymentExecute(r ApiVoidPaymentRequest)
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

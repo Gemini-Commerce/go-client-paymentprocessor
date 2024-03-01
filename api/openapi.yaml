@@ -10,6 +10,8 @@ info:
   version: v1
 servers:
 - url: https://payment-processor.api.gogemini.io/
+security:
+- Authorization: []
 tags:
 - description: Payment Processor Description
   externalDocs:
@@ -51,8 +53,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Authorize Payment
       tags:
       - Paymentprocessor
@@ -92,8 +92,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Payment Method
       tags:
       - Paymentprocessor
@@ -133,8 +131,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Finalize Payment
       tags:
       - Paymentprocessor
@@ -174,8 +170,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Available Payment Method
       tags:
       - Paymentprocessor
@@ -215,8 +209,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Payment Method
       tags:
       - Paymentprocessor
@@ -256,8 +248,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Payment Method Configuration
       tags:
       - Paymentprocessor
@@ -297,8 +287,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Init Payment
       tags:
       - Paymentprocessor
@@ -338,8 +326,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Available Payment Methods
       tags:
       - Paymentprocessor
@@ -379,8 +365,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Payment Methods
       tags:
       - Paymentprocessor
@@ -420,8 +404,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Perform Payment
       tags:
       - Paymentprocessor
@@ -461,8 +443,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Perform Refund
       tags:
       - Paymentprocessor
@@ -502,8 +482,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Update Payment
       tags:
       - Paymentprocessor
@@ -543,8 +521,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Update Payment Method
       tags:
       - Paymentprocessor
@@ -584,8 +560,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Void Payment
       tags:
       - Paymentprocessor
@@ -1843,7 +1817,13 @@ components:
           type: array
       type: object
   securitySchemes:
+    Authorization:
+      in: header
+      name: Authorization
+      type: apiKey
     standardAuthorization:
-      flows: {}
+      flows:
+        implicit:
+          scopes: {}
       type: oauth2
 x-original-swagger-version: "2.0"

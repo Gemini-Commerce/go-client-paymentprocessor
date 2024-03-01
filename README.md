@@ -15,6 +15,7 @@ Install the following dependencies:
 
 ```sh
 go get github.com/stretchr/testify/assert
+go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -142,7 +143,55 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+### Authorization
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
+
+Example
+
+```go
+auth := context.WithValue(
+		context.Background(),
+		paymentprocessor.ContextAPIKeys,
+		map[string]paymentprocessor.APIKey{
+			"Authorization": {Key: "API_KEY_STRING"},
+		},
+	)
+r, err := client.Service.Operation(auth, args)
+```
+
+### standardAuthorization
+
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: 
+- **Scopes**: N/A
+
+Example
+
+```go
+auth := context.WithValue(context.Background(), paymentprocessor.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```go
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, paymentprocessor.ContextOAuth2, tokenSource)
+r, err := client.Service.Operation(auth, args)
+```
 
 
 ## Documentation for Utility Methods

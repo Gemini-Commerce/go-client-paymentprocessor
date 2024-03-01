@@ -21,7 +21,7 @@ type ProtobufNullValue string
 
 // List of protobufNullValue
 const (
-	NULL_VALUE ProtobufNullValue = "NULL_VALUE"
+	PROTOBUFNULLVALUE_NULL_VALUE ProtobufNullValue = "NULL_VALUE"
 )
 
 // All allowed values of ProtobufNullValue enum

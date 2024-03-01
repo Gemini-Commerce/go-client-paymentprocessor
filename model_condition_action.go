@@ -21,7 +21,7 @@ type ConditionAction string
 
 // List of ConditionAction
 const (
-	DISALLOW ConditionAction = "DISALLOW"
+	CONDITIONACTION_DISALLOW ConditionAction = "DISALLOW"
 )
 
 // All allowed values of ConditionAction enum

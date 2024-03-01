@@ -44,7 +44,7 @@ func NewPaymentprocessorPaymentMethod(code string, title PaymentprocessorLocaliz
 	this := PaymentprocessorPaymentMethod{}
 	this.Code = code
 	this.Title = title
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }
@@ -54,7 +54,7 @@ func NewPaymentprocessorPaymentMethod(code string, title PaymentprocessorLocaliz
 // but it doesn't guarantee that properties required by API are set
 func NewPaymentprocessorPaymentMethodWithDefaults() *PaymentprocessorPaymentMethod {
 	this := PaymentprocessorPaymentMethod{}
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }

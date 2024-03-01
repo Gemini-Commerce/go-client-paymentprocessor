@@ -40,7 +40,7 @@ func NewPaymentprocessorInitPaymentRequest(tenantId string, code string) *Paymen
 	this := PaymentprocessorInitPaymentRequest{}
 	this.TenantId = tenantId
 	this.Code = code
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }
@@ -50,7 +50,7 @@ func NewPaymentprocessorInitPaymentRequest(tenantId string, code string) *Paymen
 // but it doesn't guarantee that properties required by API are set
 func NewPaymentprocessorInitPaymentRequestWithDefaults() *PaymentprocessorInitPaymentRequest {
 	this := PaymentprocessorInitPaymentRequest{}
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }

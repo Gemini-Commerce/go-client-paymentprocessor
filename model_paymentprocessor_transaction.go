@@ -39,7 +39,7 @@ func NewPaymentprocessorTransaction(paymentId string, id string) *Paymentprocess
 	this := PaymentprocessorTransaction{}
 	this.PaymentId = paymentId
 	this.Id = id
-	var type_ PaymentprocessorTransactionType = UNKNOWN
+	var type_ PaymentprocessorTransactionType = PAYMENTPROCESSORTRANSACTIONTYPE_UNKNOWN
 	this.Type = &type_
 	return &this
 }
@@ -49,7 +49,7 @@ func NewPaymentprocessorTransaction(paymentId string, id string) *Paymentprocess
 // but it doesn't guarantee that properties required by API are set
 func NewPaymentprocessorTransactionWithDefaults() *PaymentprocessorTransaction {
 	this := PaymentprocessorTransaction{}
-	var type_ PaymentprocessorTransactionType = UNKNOWN
+	var type_ PaymentprocessorTransactionType = PAYMENTPROCESSORTRANSACTIONTYPE_UNKNOWN
 	this.Type = &type_
 	return &this
 }

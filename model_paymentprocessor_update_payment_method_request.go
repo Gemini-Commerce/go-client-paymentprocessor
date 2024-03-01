@@ -46,7 +46,7 @@ func NewPaymentprocessorUpdatePaymentMethodRequest(tenantId string, code string)
 	this := PaymentprocessorUpdatePaymentMethodRequest{}
 	this.TenantId = tenantId
 	this.Code = code
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }
@@ -56,7 +56,7 @@ func NewPaymentprocessorUpdatePaymentMethodRequest(tenantId string, code string)
 // but it doesn't guarantee that properties required by API are set
 func NewPaymentprocessorUpdatePaymentMethodRequestWithDefaults() *PaymentprocessorUpdatePaymentMethodRequest {
 	this := PaymentprocessorUpdatePaymentMethodRequest{}
-	var currency PaymentprocessorCurrency = XXX
+	var currency PaymentprocessorCurrency = PAYMENTPROCESSORCURRENCY_XXX
 	this.Currency = &currency
 	return &this
 }

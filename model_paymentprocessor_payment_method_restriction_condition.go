@@ -32,9 +32,9 @@ type PaymentprocessorPaymentMethodRestrictionCondition struct {
 // will change when the set of required properties is changed
 func NewPaymentprocessorPaymentMethodRestrictionCondition() *PaymentprocessorPaymentMethodRestrictionCondition {
 	this := PaymentprocessorPaymentMethodRestrictionCondition{}
-	var action ConditionAction = DISALLOW
+	var action ConditionAction = CONDITIONACTION_DISALLOW
 	this.Action = &action
-	var condition PaymentMethodRestrictionConditionCondition = IN
+	var condition PaymentMethodRestrictionConditionCondition = PAYMENTMETHODRESTRICTIONCONDITIONCONDITION_IN
 	this.Condition = &condition
 	return &this
 }
@@ -44,9 +44,9 @@ func NewPaymentprocessorPaymentMethodRestrictionCondition() *PaymentprocessorPay
 // but it doesn't guarantee that properties required by API are set
 func NewPaymentprocessorPaymentMethodRestrictionConditionWithDefaults() *PaymentprocessorPaymentMethodRestrictionCondition {
 	this := PaymentprocessorPaymentMethodRestrictionCondition{}
-	var action ConditionAction = DISALLOW
+	var action ConditionAction = CONDITIONACTION_DISALLOW
 	this.Action = &action
-	var condition PaymentMethodRestrictionConditionCondition = IN
+	var condition PaymentMethodRestrictionConditionCondition = PAYMENTMETHODRESTRICTIONCONDITIONCONDITION_IN
 	this.Condition = &condition
 	return &this
 }

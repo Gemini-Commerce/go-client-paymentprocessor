@@ -21,15 +21,15 @@ type PaymentprocessorTransactionType string
 
 // List of paymentprocessorTransactionType
 const (
-	UNKNOWN PaymentprocessorTransactionType = "UNKNOWN"
-	AUTHORIZATION PaymentprocessorTransactionType = "AUTHORIZATION"
-	CAPTURE PaymentprocessorTransactionType = "CAPTURE"
-	SALE PaymentprocessorTransactionType = "SALE"
-	REFUND PaymentprocessorTransactionType = "REFUND"
-	VOID PaymentprocessorTransactionType = "VOID"
-	FAILED PaymentprocessorTransactionType = "FAILED"
-	PENDING PaymentprocessorTransactionType = "PENDING"
-	FRAUD PaymentprocessorTransactionType = "FRAUD"
+	PAYMENTPROCESSORTRANSACTIONTYPE_UNKNOWN PaymentprocessorTransactionType = "UNKNOWN"
+	PAYMENTPROCESSORTRANSACTIONTYPE_AUTHORIZATION PaymentprocessorTransactionType = "AUTHORIZATION"
+	PAYMENTPROCESSORTRANSACTIONTYPE_CAPTURE PaymentprocessorTransactionType = "CAPTURE"
+	PAYMENTPROCESSORTRANSACTIONTYPE_SALE PaymentprocessorTransactionType = "SALE"
+	PAYMENTPROCESSORTRANSACTIONTYPE_REFUND PaymentprocessorTransactionType = "REFUND"
+	PAYMENTPROCESSORTRANSACTIONTYPE_VOID PaymentprocessorTransactionType = "VOID"
+	PAYMENTPROCESSORTRANSACTIONTYPE_FAILED PaymentprocessorTransactionType = "FAILED"
+	PAYMENTPROCESSORTRANSACTIONTYPE_PENDING PaymentprocessorTransactionType = "PENDING"
+	PAYMENTPROCESSORTRANSACTIONTYPE_FRAUD PaymentprocessorTransactionType = "FRAUD"
 )
 
 // All allowed values of PaymentprocessorTransactionType enum

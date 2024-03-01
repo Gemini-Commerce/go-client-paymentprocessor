@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentId**| **string** |   |
 **Id**| **string** |   |
-**Type**| [**PaymentprocessorTransactionType**](PaymentprocessorTransactionType.md) |  for more information please, see Model/PaymentprocessorTransactionType.php  | [optional] [default to UNKNOWN]
+**Type**| [**PaymentprocessorTransactionType**](PaymentprocessorTransactionType.md) |  for more information please, see Model/PaymentprocessorTransactionType.php  | [optional] [default to PAYMENTPROCESSORTRANSACTIONTYPE_UNKNOWN]
 **AdditionalInfo**| **string** |   | [optional]
 **ChildTransactions**| [**[]PaymentprocessorTransaction**](PaymentprocessorTransaction.md) |   | [optional]
 
