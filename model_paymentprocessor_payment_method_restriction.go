@@ -21,7 +21,10 @@ var _ MappedNullable = &PaymentprocessorPaymentMethodRestriction{}
 // PaymentprocessorPaymentMethodRestriction struct for PaymentprocessorPaymentMethodRestriction
 type PaymentprocessorPaymentMethodRestriction struct {
 	Conditions []PaymentprocessorPaymentMethodRestrictionCondition `json:"conditions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentprocessorPaymentMethodRestriction PaymentprocessorPaymentMethodRestriction
 
 // NewPaymentprocessorPaymentMethodRestriction instantiates a new PaymentprocessorPaymentMethodRestriction object
 // This constructor will assign default values to properties that have it defined,
@@ -58,8 +61,8 @@ func (o *PaymentprocessorPaymentMethodRestriction) GetConditionsOk() ([]Paymentp
 	return o.Conditions, true
 }
 
-// HasConditions returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestriction) HasConditions() bool {
+// &#39;Has&#39;Conditions returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestriction) &#39;Has&#39;Conditions() bool {
 	if o != nil && !IsNil(o.Conditions) {
 		return true
 	}
@@ -85,9 +88,53 @@ func (o PaymentprocessorPaymentMethodRestriction) ToMap() (map[string]interface{
 	if !IsNil(o.Conditions) {
 		toSerialize["conditions"] = o.Conditions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentprocessorPaymentMethodRestriction) UnmarshalJSON(data []byte) (err error) {
+	varPaymentprocessorPaymentMethodRestriction := _PaymentprocessorPaymentMethodRestriction{}
+
+	err = json.Unmarshal(data, &varPaymentprocessorPaymentMethodRestriction)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentprocessorPaymentMethodRestriction(varPaymentprocessorPaymentMethodRestriction)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "conditions")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorPaymentMethodRestriction) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorPaymentMethodRestriction) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorPaymentMethodRestriction struct {
 	value *PaymentprocessorPaymentMethodRestriction
 	isSet bool

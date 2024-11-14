@@ -630,7 +630,7 @@ components:
           - null
           additionalInfo: additionalInfo
           id: id
-          type: null
+          type: UNKNOWN
       properties:
         transaction:
           $ref: '#/components/schemas/paymentprocessorTransaction'
@@ -920,7 +920,7 @@ components:
           - null
           additionalInfo: additionalInfo
           id: id
-          type: null
+          type: UNKNOWN
       properties:
         transaction:
           $ref: '#/components/schemas/paymentprocessorTransaction'
@@ -1092,32 +1092,32 @@ components:
               key: value
           restrictions:
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
+              action: DISALLOW
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-          currency: null
+              action: DISALLOW
+          currency: XXX
           label:
             value:
               key: value
@@ -1136,32 +1136,32 @@ components:
               key: value
           restrictions:
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
+              action: DISALLOW
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-          currency: null
+              action: DISALLOW
+          currency: XXX
           label:
             value:
               key: value
@@ -1198,32 +1198,32 @@ components:
               key: value
           restrictions:
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
+              action: DISALLOW
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-          currency: null
+              action: DISALLOW
+          currency: XXX
           label:
             value:
               key: value
@@ -1242,32 +1242,32 @@ components:
               key: value
           restrictions:
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
+              action: DISALLOW
           - conditions:
-            - condition: null
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-            - condition: null
+              action: DISALLOW
+            - condition: IN
               values:
               - values
               - values
               contextPath: contextPath
-              action: null
-          currency: null
+              action: DISALLOW
+          currency: XXX
           label:
             value:
               key: value
@@ -1353,32 +1353,32 @@ components:
             key: value
         restrictions:
         - conditions:
-          - condition: null
+          - condition: IN
             values:
             - values
             - values
             contextPath: contextPath
-            action: null
-          - condition: null
+            action: DISALLOW
+          - condition: IN
             values:
             - values
             - values
             contextPath: contextPath
-            action: null
+            action: DISALLOW
         - conditions:
-          - condition: null
+          - condition: IN
             values:
             - values
             - values
             contextPath: contextPath
-            action: null
-          - condition: null
+            action: DISALLOW
+          - condition: IN
             values:
             - values
             - values
             contextPath: contextPath
-            action: null
-        currency: null
+            action: DISALLOW
+        currency: XXX
         label:
           value:
             key: value
@@ -1419,18 +1419,18 @@ components:
     paymentprocessorPaymentMethodRestriction:
       example:
         conditions:
-        - condition: null
+        - condition: IN
           values:
           - values
           - values
           contextPath: contextPath
-          action: null
-        - condition: null
+          action: DISALLOW
+        - condition: IN
           values:
           - values
           - values
           contextPath: contextPath
-          action: null
+          action: DISALLOW
       properties:
         conditions:
           items:
@@ -1439,12 +1439,12 @@ components:
       type: object
     paymentprocessorPaymentMethodRestrictionCondition:
       example:
-        condition: null
+        condition: IN
         values:
         - values
         - values
         contextPath: contextPath
-        action: null
+        action: DISALLOW
       properties:
         contextPath:
           type: string
@@ -1652,7 +1652,7 @@ components:
         - null
         additionalInfo: additionalInfo
         id: id
-        type: null
+        type: UNKNOWN
       properties:
         paymentId:
           type: string
@@ -1778,7 +1778,7 @@ components:
           - null
           additionalInfo: additionalInfo
           id: id
-          type: null
+          type: UNKNOWN
       properties:
         transaction:
           $ref: '#/components/schemas/paymentprocessorTransaction'
@@ -1788,6 +1788,8 @@ components:
     protobufAny:
       additionalProperties:
         type: object
+      example:
+        '@type': '@type'
       properties:
         '@type':
           type: string
@@ -1805,6 +1807,12 @@ components:
       - NULL_VALUE
       type: string
     rpcStatus:
+      example:
+        code: 0
+        details:
+        - '@type': '@type'
+        - '@type': '@type'
+        message: message
       properties:
         code:
           format: int32

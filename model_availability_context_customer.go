@@ -22,7 +22,10 @@ var _ MappedNullable = &AvailabilityContextCustomer{}
 type AvailabilityContextCustomer struct {
 	Segments []string `json:"segments,omitempty"`
 	Email *string `json:"email,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AvailabilityContextCustomer AvailabilityContextCustomer
 
 // NewAvailabilityContextCustomer instantiates a new AvailabilityContextCustomer object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *AvailabilityContextCustomer) GetSegmentsOk() ([]string, bool) {
 	return o.Segments, true
 }
 
-// HasSegments returns a boolean if a field has been set.
-func (o *AvailabilityContextCustomer) HasSegments() bool {
+// &#39;Has&#39;Segments returns a boolean if a field has been set.
+func (o *AvailabilityContextCustomer) &#39;Has&#39;Segments() bool {
 	if o != nil && !IsNil(o.Segments) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *AvailabilityContextCustomer) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *AvailabilityContextCustomer) HasEmail() bool {
+// &#39;Has&#39;Email returns a boolean if a field has been set.
+func (o *AvailabilityContextCustomer) &#39;Has&#39;Email() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o AvailabilityContextCustomer) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AvailabilityContextCustomer) UnmarshalJSON(data []byte) (err error) {
+	varAvailabilityContextCustomer := _AvailabilityContextCustomer{}
+
+	err = json.Unmarshal(data, &varAvailabilityContextCustomer)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AvailabilityContextCustomer(varAvailabilityContextCustomer)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "segments")
+		delete(additionalProperties, "email")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AvailabilityContextCustomer) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AvailabilityContextCustomer) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAvailabilityContextCustomer struct {
 	value *AvailabilityContextCustomer
 	isSet bool

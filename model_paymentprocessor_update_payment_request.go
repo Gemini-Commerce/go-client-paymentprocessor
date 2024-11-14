@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type PaymentprocessorUpdatePaymentRequest struct {
 	Code string `json:"code"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	Transactions []PaymentprocessorTransaction `json:"transactions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorUpdatePaymentRequest PaymentprocessorUpdatePaymentRequest
@@ -142,8 +142,8 @@ func (o *PaymentprocessorUpdatePaymentRequest) GetAdditionalInfoOk() (*string, b
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentRequest) HasAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentRequest) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -174,8 +174,8 @@ func (o *PaymentprocessorUpdatePaymentRequest) GetTransactionsOk() ([]Paymentpro
 	return o.Transactions, true
 }
 
-// HasTransactions returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentRequest) HasTransactions() bool {
+// &#39;Has&#39;Transactions returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentRequest) &#39;Has&#39;Transactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}
@@ -207,6 +207,11 @@ func (o PaymentprocessorUpdatePaymentRequest) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Transactions) {
 		toSerialize["transactions"] = o.Transactions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -236,9 +241,7 @@ func (o *PaymentprocessorUpdatePaymentRequest) UnmarshalJSON(data []byte) (err e
 
 	varPaymentprocessorUpdatePaymentRequest := _PaymentprocessorUpdatePaymentRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorUpdatePaymentRequest)
+	err = json.Unmarshal(data, &varPaymentprocessorUpdatePaymentRequest)
 
 	if err != nil {
 		return err
@@ -246,9 +249,38 @@ func (o *PaymentprocessorUpdatePaymentRequest) UnmarshalJSON(data []byte) (err e
 
 	*o = PaymentprocessorUpdatePaymentRequest(varPaymentprocessorUpdatePaymentRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "transactions")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorUpdatePaymentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorUpdatePaymentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorUpdatePaymentRequest struct {
 	value *PaymentprocessorUpdatePaymentRequest
 	isSet bool

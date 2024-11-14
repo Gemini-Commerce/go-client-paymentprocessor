@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type PaymentprocessorGetAvailablePaymentMethodRequest struct {
 	Code string `json:"code"`
 	Context PaymentprocessorAvailabilityContext `json:"context"`
 	AuthenticateMethod *bool `json:"authenticateMethod,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorGetAvailablePaymentMethodRequest PaymentprocessorGetAvailablePaymentMethodRequest
@@ -140,8 +140,8 @@ func (o *PaymentprocessorGetAvailablePaymentMethodRequest) GetAuthenticateMethod
 	return o.AuthenticateMethod, true
 }
 
-// HasAuthenticateMethod returns a boolean if a field has been set.
-func (o *PaymentprocessorGetAvailablePaymentMethodRequest) HasAuthenticateMethod() bool {
+// &#39;Has&#39;AuthenticateMethod returns a boolean if a field has been set.
+func (o *PaymentprocessorGetAvailablePaymentMethodRequest) &#39;Has&#39;AuthenticateMethod() bool {
 	if o != nil && !IsNil(o.AuthenticateMethod) {
 		return true
 	}
@@ -170,6 +170,11 @@ func (o PaymentprocessorGetAvailablePaymentMethodRequest) ToMap() (map[string]in
 	if !IsNil(o.AuthenticateMethod) {
 		toSerialize["authenticateMethod"] = o.AuthenticateMethod
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -199,9 +204,7 @@ func (o *PaymentprocessorGetAvailablePaymentMethodRequest) UnmarshalJSON(data []
 
 	varPaymentprocessorGetAvailablePaymentMethodRequest := _PaymentprocessorGetAvailablePaymentMethodRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorGetAvailablePaymentMethodRequest)
+	err = json.Unmarshal(data, &varPaymentprocessorGetAvailablePaymentMethodRequest)
 
 	if err != nil {
 		return err
@@ -209,9 +212,37 @@ func (o *PaymentprocessorGetAvailablePaymentMethodRequest) UnmarshalJSON(data []
 
 	*o = PaymentprocessorGetAvailablePaymentMethodRequest(varPaymentprocessorGetAvailablePaymentMethodRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "context")
+		delete(additionalProperties, "authenticateMethod")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorGetAvailablePaymentMethodRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorGetAvailablePaymentMethodRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorGetAvailablePaymentMethodRequest struct {
 	value *PaymentprocessorGetAvailablePaymentMethodRequest
 	isSet bool

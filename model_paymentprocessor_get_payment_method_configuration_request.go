@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &PaymentprocessorGetPaymentMethodConfigurationRequest{}
 type PaymentprocessorGetPaymentMethodConfigurationRequest struct {
 	TenantId string `json:"tenantId"`
 	Code string `json:"code"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorGetPaymentMethodConfigurationRequest PaymentprocessorGetPaymentMethodConfigurationRequest
@@ -107,6 +107,11 @@ func (o PaymentprocessorGetPaymentMethodConfigurationRequest) ToMap() (map[strin
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["code"] = o.Code
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,9 +140,7 @@ func (o *PaymentprocessorGetPaymentMethodConfigurationRequest) UnmarshalJSON(dat
 
 	varPaymentprocessorGetPaymentMethodConfigurationRequest := _PaymentprocessorGetPaymentMethodConfigurationRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorGetPaymentMethodConfigurationRequest)
+	err = json.Unmarshal(data, &varPaymentprocessorGetPaymentMethodConfigurationRequest)
 
 	if err != nil {
 		return err
@@ -145,9 +148,35 @@ func (o *PaymentprocessorGetPaymentMethodConfigurationRequest) UnmarshalJSON(dat
 
 	*o = PaymentprocessorGetPaymentMethodConfigurationRequest(varPaymentprocessorGetPaymentMethodConfigurationRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorGetPaymentMethodConfigurationRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorGetPaymentMethodConfigurationRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorGetPaymentMethodConfigurationRequest struct {
 	value *PaymentprocessorGetPaymentMethodConfigurationRequest
 	isSet bool

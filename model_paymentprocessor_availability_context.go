@@ -23,7 +23,10 @@ type PaymentprocessorAvailabilityContext struct {
 	ShippingAddress *PaymentprocessorAvailabilityContextPostalAddress `json:"shippingAddress,omitempty"`
 	BillingAddress *PaymentprocessorAvailabilityContextPostalAddress `json:"billingAddress,omitempty"`
 	Customer *AvailabilityContextCustomer `json:"customer,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentprocessorAvailabilityContext PaymentprocessorAvailabilityContext
 
 // NewPaymentprocessorAvailabilityContext instantiates a new PaymentprocessorAvailabilityContext object
 // This constructor will assign default values to properties that have it defined,
@@ -60,8 +63,8 @@ func (o *PaymentprocessorAvailabilityContext) GetShippingAddressOk() (*Paymentpr
 	return o.ShippingAddress, true
 }
 
-// HasShippingAddress returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) HasShippingAddress() bool {
+// &#39;Has&#39;ShippingAddress returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;ShippingAddress() bool {
 	if o != nil && !IsNil(o.ShippingAddress) {
 		return true
 	}
@@ -92,8 +95,8 @@ func (o *PaymentprocessorAvailabilityContext) GetBillingAddressOk() (*Paymentpro
 	return o.BillingAddress, true
 }
 
-// HasBillingAddress returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) HasBillingAddress() bool {
+// &#39;Has&#39;BillingAddress returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;BillingAddress() bool {
 	if o != nil && !IsNil(o.BillingAddress) {
 		return true
 	}
@@ -124,8 +127,8 @@ func (o *PaymentprocessorAvailabilityContext) GetCustomerOk() (*AvailabilityCont
 	return o.Customer, true
 }
 
-// HasCustomer returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) HasCustomer() bool {
+// &#39;Has&#39;Customer returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;Customer() bool {
 	if o != nil && !IsNil(o.Customer) {
 		return true
 	}
@@ -157,9 +160,55 @@ func (o PaymentprocessorAvailabilityContext) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Customer) {
 		toSerialize["customer"] = o.Customer
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentprocessorAvailabilityContext) UnmarshalJSON(data []byte) (err error) {
+	varPaymentprocessorAvailabilityContext := _PaymentprocessorAvailabilityContext{}
+
+	err = json.Unmarshal(data, &varPaymentprocessorAvailabilityContext)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentprocessorAvailabilityContext(varPaymentprocessorAvailabilityContext)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "shippingAddress")
+		delete(additionalProperties, "billingAddress")
+		delete(additionalProperties, "customer")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorAvailabilityContext) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorAvailabilityContext) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorAvailabilityContext struct {
 	value *PaymentprocessorAvailabilityContext
 	isSet bool

@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type PaymentprocessorPerformPaymentRequest struct {
 	Currency *PaymentprocessorCurrency `json:"currency,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	Transactions []PaymentprocessorTransaction `json:"transactions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorPerformPaymentRequest PaymentprocessorPerformPaymentRequest
@@ -125,8 +125,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetContextOk() (*Paymentprocesso
 	return o.Context, true
 }
 
-// HasContext returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) HasContext() bool {
+// &#39;Has&#39;Context returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Context() bool {
 	if o != nil && !IsNil(o.Context) {
 		return true
 	}
@@ -181,8 +181,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetAmountOk() (*Paymentprocessor
 	return o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) HasAmount() bool {
+// &#39;Has&#39;Amount returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Amount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -213,8 +213,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetCurrencyOk() (*Paymentprocess
 	return o.Currency, true
 }
 
-// HasCurrency returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) HasCurrency() bool {
+// &#39;Has&#39;Currency returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Currency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -245,8 +245,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetAdditionalInfoOk() (*string, 
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) HasAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -277,8 +277,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetTransactionsOk() ([]Paymentpr
 	return o.Transactions, true
 }
 
-// HasTransactions returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) HasTransactions() bool {
+// &#39;Has&#39;Transactions returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Transactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}
@@ -319,6 +319,11 @@ func (o PaymentprocessorPerformPaymentRequest) ToMap() (map[string]interface{}, 
 	if !IsNil(o.Transactions) {
 		toSerialize["transactions"] = o.Transactions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -348,9 +353,7 @@ func (o *PaymentprocessorPerformPaymentRequest) UnmarshalJSON(data []byte) (err 
 
 	varPaymentprocessorPerformPaymentRequest := _PaymentprocessorPerformPaymentRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorPerformPaymentRequest)
+	err = json.Unmarshal(data, &varPaymentprocessorPerformPaymentRequest)
 
 	if err != nil {
 		return err
@@ -358,9 +361,41 @@ func (o *PaymentprocessorPerformPaymentRequest) UnmarshalJSON(data []byte) (err 
 
 	*o = PaymentprocessorPerformPaymentRequest(varPaymentprocessorPerformPaymentRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "context")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "amount")
+		delete(additionalProperties, "currency")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "transactions")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorPerformPaymentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorPerformPaymentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorPerformPaymentRequest struct {
 	value *PaymentprocessorPerformPaymentRequest
 	isSet bool

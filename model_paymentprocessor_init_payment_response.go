@@ -22,7 +22,10 @@ var _ MappedNullable = &PaymentprocessorInitPaymentResponse{}
 type PaymentprocessorInitPaymentResponse struct {
 	Payload *string `json:"payload,omitempty"`
 	ErrorMessage *string `json:"errorMessage,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentprocessorInitPaymentResponse PaymentprocessorInitPaymentResponse
 
 // NewPaymentprocessorInitPaymentResponse instantiates a new PaymentprocessorInitPaymentResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *PaymentprocessorInitPaymentResponse) GetPayloadOk() (*string, bool) {
 	return o.Payload, true
 }
 
-// HasPayload returns a boolean if a field has been set.
-func (o *PaymentprocessorInitPaymentResponse) HasPayload() bool {
+// &#39;Has&#39;Payload returns a boolean if a field has been set.
+func (o *PaymentprocessorInitPaymentResponse) &#39;Has&#39;Payload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *PaymentprocessorInitPaymentResponse) GetErrorMessageOk() (*string, bool
 	return o.ErrorMessage, true
 }
 
-// HasErrorMessage returns a boolean if a field has been set.
-func (o *PaymentprocessorInitPaymentResponse) HasErrorMessage() bool {
+// &#39;Has&#39;ErrorMessage returns a boolean if a field has been set.
+func (o *PaymentprocessorInitPaymentResponse) &#39;Has&#39;ErrorMessage() bool {
 	if o != nil && !IsNil(o.ErrorMessage) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o PaymentprocessorInitPaymentResponse) ToMap() (map[string]interface{}, er
 	if !IsNil(o.ErrorMessage) {
 		toSerialize["errorMessage"] = o.ErrorMessage
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentprocessorInitPaymentResponse) UnmarshalJSON(data []byte) (err error) {
+	varPaymentprocessorInitPaymentResponse := _PaymentprocessorInitPaymentResponse{}
+
+	err = json.Unmarshal(data, &varPaymentprocessorInitPaymentResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentprocessorInitPaymentResponse(varPaymentprocessorInitPaymentResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "payload")
+		delete(additionalProperties, "errorMessage")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorInitPaymentResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorInitPaymentResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorInitPaymentResponse struct {
 	value *PaymentprocessorInitPaymentResponse
 	isSet bool

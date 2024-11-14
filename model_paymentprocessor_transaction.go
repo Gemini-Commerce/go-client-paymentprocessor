@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type PaymentprocessorTransaction struct {
 	Type *PaymentprocessorTransactionType `json:"type,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	ChildTransactions []PaymentprocessorTransaction `json:"childTransactions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorTransaction PaymentprocessorTransaction
@@ -120,8 +120,8 @@ func (o *PaymentprocessorTransaction) GetTypeOk() (*PaymentprocessorTransactionT
 	return o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) HasType() bool {
+// &#39;Has&#39;Type returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) &#39;Has&#39;Type() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
@@ -152,8 +152,8 @@ func (o *PaymentprocessorTransaction) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) HasAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -184,8 +184,8 @@ func (o *PaymentprocessorTransaction) GetChildTransactionsOk() ([]Paymentprocess
 	return o.ChildTransactions, true
 }
 
-// HasChildTransactions returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) HasChildTransactions() bool {
+// &#39;Has&#39;ChildTransactions returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) &#39;Has&#39;ChildTransactions() bool {
 	if o != nil && !IsNil(o.ChildTransactions) {
 		return true
 	}
@@ -219,6 +219,11 @@ func (o PaymentprocessorTransaction) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ChildTransactions) {
 		toSerialize["childTransactions"] = o.ChildTransactions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -247,9 +252,7 @@ func (o *PaymentprocessorTransaction) UnmarshalJSON(data []byte) (err error) {
 
 	varPaymentprocessorTransaction := _PaymentprocessorTransaction{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorTransaction)
+	err = json.Unmarshal(data, &varPaymentprocessorTransaction)
 
 	if err != nil {
 		return err
@@ -257,9 +260,38 @@ func (o *PaymentprocessorTransaction) UnmarshalJSON(data []byte) (err error) {
 
 	*o = PaymentprocessorTransaction(varPaymentprocessorTransaction)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "childTransactions")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorTransaction) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorTransaction) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorTransaction struct {
 	value *PaymentprocessorTransaction
 	isSet bool

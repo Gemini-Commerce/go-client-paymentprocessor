@@ -46,7 +46,10 @@ type PaymentprocessorPostalAddress struct {
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// Optional.
 	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentprocessorPostalAddress PaymentprocessorPostalAddress
 
 // NewPaymentprocessorPostalAddress instantiates a new PaymentprocessorPostalAddress object
 // This constructor will assign default values to properties that have it defined,
@@ -83,8 +86,8 @@ func (o *PaymentprocessorPostalAddress) GetRevisionOk() (*int32, bool) {
 	return o.Revision, true
 }
 
-// HasRevision returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasRevision() bool {
+// &#39;Has&#39;Revision returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;Revision() bool {
 	if o != nil && !IsNil(o.Revision) {
 		return true
 	}
@@ -115,8 +118,8 @@ func (o *PaymentprocessorPostalAddress) GetRegionCodeOk() (*string, bool) {
 	return o.RegionCode, true
 }
 
-// HasRegionCode returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasRegionCode() bool {
+// &#39;Has&#39;RegionCode returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;RegionCode() bool {
 	if o != nil && !IsNil(o.RegionCode) {
 		return true
 	}
@@ -147,8 +150,8 @@ func (o *PaymentprocessorPostalAddress) GetLanguageCodeOk() (*string, bool) {
 	return o.LanguageCode, true
 }
 
-// HasLanguageCode returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasLanguageCode() bool {
+// &#39;Has&#39;LanguageCode returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;LanguageCode() bool {
 	if o != nil && !IsNil(o.LanguageCode) {
 		return true
 	}
@@ -179,8 +182,8 @@ func (o *PaymentprocessorPostalAddress) GetPostalCodeOk() (*string, bool) {
 	return o.PostalCode, true
 }
 
-// HasPostalCode returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasPostalCode() bool {
+// &#39;Has&#39;PostalCode returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;PostalCode() bool {
 	if o != nil && !IsNil(o.PostalCode) {
 		return true
 	}
@@ -211,8 +214,8 @@ func (o *PaymentprocessorPostalAddress) GetSortingCodeOk() (*string, bool) {
 	return o.SortingCode, true
 }
 
-// HasSortingCode returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasSortingCode() bool {
+// &#39;Has&#39;SortingCode returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;SortingCode() bool {
 	if o != nil && !IsNil(o.SortingCode) {
 		return true
 	}
@@ -243,8 +246,8 @@ func (o *PaymentprocessorPostalAddress) GetAdministrativeAreaOk() (*string, bool
 	return o.AdministrativeArea, true
 }
 
-// HasAdministrativeArea returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasAdministrativeArea() bool {
+// &#39;Has&#39;AdministrativeArea returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;AdministrativeArea() bool {
 	if o != nil && !IsNil(o.AdministrativeArea) {
 		return true
 	}
@@ -275,8 +278,8 @@ func (o *PaymentprocessorPostalAddress) GetLocalityOk() (*string, bool) {
 	return o.Locality, true
 }
 
-// HasLocality returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasLocality() bool {
+// &#39;Has&#39;Locality returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;Locality() bool {
 	if o != nil && !IsNil(o.Locality) {
 		return true
 	}
@@ -307,8 +310,8 @@ func (o *PaymentprocessorPostalAddress) GetSublocalityOk() (*string, bool) {
 	return o.Sublocality, true
 }
 
-// HasSublocality returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasSublocality() bool {
+// &#39;Has&#39;Sublocality returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;Sublocality() bool {
 	if o != nil && !IsNil(o.Sublocality) {
 		return true
 	}
@@ -339,8 +342,8 @@ func (o *PaymentprocessorPostalAddress) GetAddressLinesOk() ([]string, bool) {
 	return o.AddressLines, true
 }
 
-// HasAddressLines returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasAddressLines() bool {
+// &#39;Has&#39;AddressLines returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;AddressLines() bool {
 	if o != nil && !IsNil(o.AddressLines) {
 		return true
 	}
@@ -371,8 +374,8 @@ func (o *PaymentprocessorPostalAddress) GetRecipientsOk() ([]string, bool) {
 	return o.Recipients, true
 }
 
-// HasRecipients returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasRecipients() bool {
+// &#39;Has&#39;Recipients returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;Recipients() bool {
 	if o != nil && !IsNil(o.Recipients) {
 		return true
 	}
@@ -403,8 +406,8 @@ func (o *PaymentprocessorPostalAddress) GetOrganizationOk() (*string, bool) {
 	return o.Organization, true
 }
 
-// HasOrganization returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasOrganization() bool {
+// &#39;Has&#39;Organization returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;Organization() bool {
 	if o != nil && !IsNil(o.Organization) {
 		return true
 	}
@@ -435,8 +438,8 @@ func (o *PaymentprocessorPostalAddress) GetPhoneNumberOk() (*string, bool) {
 	return o.PhoneNumber, true
 }
 
-// HasPhoneNumber returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasPhoneNumber() bool {
+// &#39;Has&#39;PhoneNumber returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;PhoneNumber() bool {
 	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
@@ -467,8 +470,8 @@ func (o *PaymentprocessorPostalAddress) GetAdditionalInfoOk() (map[string]interf
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorPostalAddress) HasAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorPostalAddress) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -530,9 +533,65 @@ func (o PaymentprocessorPostalAddress) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentprocessorPostalAddress) UnmarshalJSON(data []byte) (err error) {
+	varPaymentprocessorPostalAddress := _PaymentprocessorPostalAddress{}
+
+	err = json.Unmarshal(data, &varPaymentprocessorPostalAddress)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentprocessorPostalAddress(varPaymentprocessorPostalAddress)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "revision")
+		delete(additionalProperties, "regionCode")
+		delete(additionalProperties, "languageCode")
+		delete(additionalProperties, "postalCode")
+		delete(additionalProperties, "sortingCode")
+		delete(additionalProperties, "administrativeArea")
+		delete(additionalProperties, "locality")
+		delete(additionalProperties, "sublocality")
+		delete(additionalProperties, "addressLines")
+		delete(additionalProperties, "recipients")
+		delete(additionalProperties, "organization")
+		delete(additionalProperties, "phoneNumber")
+		delete(additionalProperties, "additionalInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorPostalAddress) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorPostalAddress) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorPostalAddress struct {
 	value *PaymentprocessorPostalAddress
 	isSet bool

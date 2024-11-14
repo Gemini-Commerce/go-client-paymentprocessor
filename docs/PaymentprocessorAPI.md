@@ -1,4 +1,4 @@
-# GeminiCommerce\Paymentprocessor\PaymentprocessorAPI
+# \PaymentprocessorAPI
 
 All URIs are relative to *https://payment-processor.api.gogemini.io*
 

@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -32,6 +31,7 @@ type PaymentprocessorPaymentMethod struct {
 	IsUpfront *bool `json:"isUpfront,omitempty"`
 	Description *PaymentprocessorLocalizedText `json:"description,omitempty"`
 	Restrictions []PaymentprocessorPaymentMethodRestriction `json:"restrictions,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentprocessorPaymentMethod PaymentprocessorPaymentMethod
@@ -125,8 +125,8 @@ func (o *PaymentprocessorPaymentMethod) GetLabelOk() (*PaymentprocessorLocalized
 	return o.Label, true
 }
 
-// HasLabel returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasLabel() bool {
+// &#39;Has&#39;Label returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Label() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -157,8 +157,8 @@ func (o *PaymentprocessorPaymentMethod) GetEnabledOk() (*bool, bool) {
 	return o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasEnabled() bool {
+// &#39;Has&#39;Enabled returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Enabled() bool {
 	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
@@ -189,8 +189,8 @@ func (o *PaymentprocessorPaymentMethod) GetAmountOk() (*PaymentprocessorMoney, b
 	return o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasAmount() bool {
+// &#39;Has&#39;Amount returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Amount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -221,8 +221,8 @@ func (o *PaymentprocessorPaymentMethod) GetCurrencyOk() (*PaymentprocessorCurren
 	return o.Currency, true
 }
 
-// HasCurrency returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasCurrency() bool {
+// &#39;Has&#39;Currency returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Currency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -253,8 +253,8 @@ func (o *PaymentprocessorPaymentMethod) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -285,8 +285,8 @@ func (o *PaymentprocessorPaymentMethod) GetIsUpfrontOk() (*bool, bool) {
 	return o.IsUpfront, true
 }
 
-// HasIsUpfront returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasIsUpfront() bool {
+// &#39;Has&#39;IsUpfront returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;IsUpfront() bool {
 	if o != nil && !IsNil(o.IsUpfront) {
 		return true
 	}
@@ -317,8 +317,8 @@ func (o *PaymentprocessorPaymentMethod) GetDescriptionOk() (*PaymentprocessorLoc
 	return o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasDescription() bool {
+// &#39;Has&#39;Description returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Description() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -349,8 +349,8 @@ func (o *PaymentprocessorPaymentMethod) GetRestrictionsOk() ([]PaymentprocessorP
 	return o.Restrictions, true
 }
 
-// HasRestrictions returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethod) HasRestrictions() bool {
+// &#39;Has&#39;Restrictions returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethod) &#39;Has&#39;Restrictions() bool {
 	if o != nil && !IsNil(o.Restrictions) {
 		return true
 	}
@@ -399,6 +399,11 @@ func (o PaymentprocessorPaymentMethod) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Restrictions) {
 		toSerialize["restrictions"] = o.Restrictions
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -427,9 +432,7 @@ func (o *PaymentprocessorPaymentMethod) UnmarshalJSON(data []byte) (err error) {
 
 	varPaymentprocessorPaymentMethod := _PaymentprocessorPaymentMethod{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentprocessorPaymentMethod)
+	err = json.Unmarshal(data, &varPaymentprocessorPaymentMethod)
 
 	if err != nil {
 		return err
@@ -437,9 +440,43 @@ func (o *PaymentprocessorPaymentMethod) UnmarshalJSON(data []byte) (err error) {
 
 	*o = PaymentprocessorPaymentMethod(varPaymentprocessorPaymentMethod)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "title")
+		delete(additionalProperties, "label")
+		delete(additionalProperties, "enabled")
+		delete(additionalProperties, "amount")
+		delete(additionalProperties, "currency")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "isUpfront")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "restrictions")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorPaymentMethod) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorPaymentMethod) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorPaymentMethod struct {
 	value *PaymentprocessorPaymentMethod
 	isSet bool

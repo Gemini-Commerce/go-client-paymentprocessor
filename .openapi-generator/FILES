@@ -96,5 +96,4 @@ model_protobuf_any.go
 model_protobuf_null_value.go
 model_rpc_status.go
 response.go
-test/api_paymentprocessor_test.go
 utils.go

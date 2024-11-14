@@ -24,7 +24,10 @@ type PaymentprocessorMoney struct {
 	Units *string `json:"units,omitempty"`
 	// Number of micro (10^-6) units of the amount. The value must be between -999,999 and +999,999 inclusive. If `units` is positive, `micros` must be positive or zero. If `units` is zero, `micros` can be positive, zero, or negative. If `units` is negative, `micros` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `micros`=-750,000.
 	Micros *int32 `json:"micros,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentprocessorMoney PaymentprocessorMoney
 
 // NewPaymentprocessorMoney instantiates a new PaymentprocessorMoney object
 // This constructor will assign default values to properties that have it defined,
@@ -61,8 +64,8 @@ func (o *PaymentprocessorMoney) GetUnitsOk() (*string, bool) {
 	return o.Units, true
 }
 
-// HasUnits returns a boolean if a field has been set.
-func (o *PaymentprocessorMoney) HasUnits() bool {
+// &#39;Has&#39;Units returns a boolean if a field has been set.
+func (o *PaymentprocessorMoney) &#39;Has&#39;Units() bool {
 	if o != nil && !IsNil(o.Units) {
 		return true
 	}
@@ -93,8 +96,8 @@ func (o *PaymentprocessorMoney) GetMicrosOk() (*int32, bool) {
 	return o.Micros, true
 }
 
-// HasMicros returns a boolean if a field has been set.
-func (o *PaymentprocessorMoney) HasMicros() bool {
+// &#39;Has&#39;Micros returns a boolean if a field has been set.
+func (o *PaymentprocessorMoney) &#39;Has&#39;Micros() bool {
 	if o != nil && !IsNil(o.Micros) {
 		return true
 	}
@@ -123,9 +126,54 @@ func (o PaymentprocessorMoney) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Micros) {
 		toSerialize["micros"] = o.Micros
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentprocessorMoney) UnmarshalJSON(data []byte) (err error) {
+	varPaymentprocessorMoney := _PaymentprocessorMoney{}
+
+	err = json.Unmarshal(data, &varPaymentprocessorMoney)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentprocessorMoney(varPaymentprocessorMoney)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "units")
+		delete(additionalProperties, "micros")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentprocessorMoney) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentprocessorMoney) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentprocessorMoney struct {
 	value *PaymentprocessorMoney
 	isSet bool

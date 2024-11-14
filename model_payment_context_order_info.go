@@ -13,7 +13,6 @@ package paymentprocessor
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type PaymentContextOrderInfo struct {
 	Number string `json:"number"`
 	Grn string `json:"grn"`
 	Items []PaymentprocessorItem `json:"items,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PaymentContextOrderInfo PaymentContextOrderInfo
@@ -114,8 +114,8 @@ func (o *PaymentContextOrderInfo) GetItemsOk() ([]PaymentprocessorItem, bool) {
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *PaymentContextOrderInfo) HasItems() bool {
+// &#39;Has&#39;Items returns a boolean if a field has been set.
+func (o *PaymentContextOrderInfo) &#39;Has&#39;Items() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -143,6 +143,11 @@ func (o PaymentContextOrderInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -171,9 +176,7 @@ func (o *PaymentContextOrderInfo) UnmarshalJSON(data []byte) (err error) {
 
 	varPaymentContextOrderInfo := _PaymentContextOrderInfo{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPaymentContextOrderInfo)
+	err = json.Unmarshal(data, &varPaymentContextOrderInfo)
 
 	if err != nil {
 		return err
@@ -181,9 +184,36 @@ func (o *PaymentContextOrderInfo) UnmarshalJSON(data []byte) (err error) {
 
 	*o = PaymentContextOrderInfo(varPaymentContextOrderInfo)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "number")
+		delete(additionalProperties, "grn")
+		delete(additionalProperties, "items")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *PaymentContextOrderInfo) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentContextOrderInfo) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentContextOrderInfo struct {
 	value *PaymentContextOrderInfo
 	isSet bool
