@@ -98,8 +98,8 @@ func (o *PaymentprocessorAuthorizePaymentRequest) GetContextOk() (*Paymentproces
 	return o.Context, true
 }
 
-// &#39;Has&#39;Context returns a boolean if a field has been set.
-func (o *PaymentprocessorAuthorizePaymentRequest) &#39;Has&#39;Context() bool {
+// HasContext returns a boolean if a field has been set.
+func (o *PaymentprocessorAuthorizePaymentRequest) HasContext() bool {
 	if o != nil && !IsNil(o.Context) {
 		return true
 	}
@@ -154,8 +154,8 @@ func (o *PaymentprocessorAuthorizePaymentRequest) GetAmountOk() (*Paymentprocess
 	return o.Amount, true
 }
 
-// &#39;Has&#39;Amount returns a boolean if a field has been set.
-func (o *PaymentprocessorAuthorizePaymentRequest) &#39;Has&#39;Amount() bool {
+// HasAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorAuthorizePaymentRequest) HasAmount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -186,8 +186,8 @@ func (o *PaymentprocessorAuthorizePaymentRequest) GetCurrencyOk() (*Paymentproce
 	return o.Currency, true
 }
 
-// &#39;Has&#39;Currency returns a boolean if a field has been set.
-func (o *PaymentprocessorAuthorizePaymentRequest) &#39;Has&#39;Currency() bool {
+// HasCurrency returns a boolean if a field has been set.
+func (o *PaymentprocessorAuthorizePaymentRequest) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -218,8 +218,8 @@ func (o *PaymentprocessorAuthorizePaymentRequest) GetAdditionalInfoOk() (*string
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorAuthorizePaymentRequest) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorAuthorizePaymentRequest) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

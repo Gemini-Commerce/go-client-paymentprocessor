@@ -61,8 +61,8 @@ func (o *PaymentprocessorPerformPaymentResponse) GetIsUpfrontOk() (*bool, bool) 
 	return o.IsUpfront, true
 }
 
-// &#39;Has&#39;IsUpfront returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentResponse) &#39;Has&#39;IsUpfront() bool {
+// HasIsUpfront returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentResponse) HasIsUpfront() bool {
 	if o != nil && !IsNil(o.IsUpfront) {
 		return true
 	}

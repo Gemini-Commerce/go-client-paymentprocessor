@@ -93,8 +93,8 @@ func (o *PaymentprocessorVoidPaymentRequest) GetPaymentIdOk() (*string, bool) {
 	return o.PaymentId, true
 }
 
-// &#39;Has&#39;PaymentId returns a boolean if a field has been set.
-func (o *PaymentprocessorVoidPaymentRequest) &#39;Has&#39;PaymentId() bool {
+// HasPaymentId returns a boolean if a field has been set.
+func (o *PaymentprocessorVoidPaymentRequest) HasPaymentId() bool {
 	if o != nil && !IsNil(o.PaymentId) {
 		return true
 	}
@@ -149,8 +149,8 @@ func (o *PaymentprocessorVoidPaymentRequest) GetAdditionalInfoOk() (*string, boo
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorVoidPaymentRequest) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorVoidPaymentRequest) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -181,8 +181,8 @@ func (o *PaymentprocessorVoidPaymentRequest) GetTransactionsOk() ([]Paymentproce
 	return o.Transactions, true
 }
 
-// &#39;Has&#39;Transactions returns a boolean if a field has been set.
-func (o *PaymentprocessorVoidPaymentRequest) &#39;Has&#39;Transactions() bool {
+// HasTransactions returns a boolean if a field has been set.
+func (o *PaymentprocessorVoidPaymentRequest) HasTransactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}

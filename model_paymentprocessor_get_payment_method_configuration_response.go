@@ -61,8 +61,8 @@ func (o *PaymentprocessorGetPaymentMethodConfigurationResponse) GetConfiguration
 	return o.Configuration, true
 }
 
-// &#39;Has&#39;Configuration returns a boolean if a field has been set.
-func (o *PaymentprocessorGetPaymentMethodConfigurationResponse) &#39;Has&#39;Configuration() bool {
+// HasConfiguration returns a boolean if a field has been set.
+func (o *PaymentprocessorGetPaymentMethodConfigurationResponse) HasConfiguration() bool {
 	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}

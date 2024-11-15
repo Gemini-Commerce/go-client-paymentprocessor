@@ -114,8 +114,8 @@ func (o *PaymentContextOrderInfo) GetItemsOk() ([]PaymentprocessorItem, bool) {
 	return o.Items, true
 }
 
-// &#39;Has&#39;Items returns a boolean if a field has been set.
-func (o *PaymentContextOrderInfo) &#39;Has&#39;Items() bool {
+// HasItems returns a boolean if a field has been set.
+func (o *PaymentContextOrderInfo) HasItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}

@@ -127,8 +127,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetTitleOk() (*Paymentproce
 	return o.Title, true
 }
 
-// &#39;Has&#39;Title returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Title() bool {
+// HasTitle returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -159,8 +159,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetLabelOk() (*Paymentproce
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -191,8 +191,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetEnabledOk() (*bool, bool
 	return o.Enabled, true
 }
 
-// &#39;Has&#39;Enabled returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Enabled() bool {
+// HasEnabled returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasEnabled() bool {
 	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
@@ -223,8 +223,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetAmountOk() (*Paymentproc
 	return o.Amount, true
 }
 
-// &#39;Has&#39;Amount returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Amount() bool {
+// HasAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasAmount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -255,8 +255,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetCurrencyOk() (*Paymentpr
 	return o.Currency, true
 }
 
-// &#39;Has&#39;Currency returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Currency() bool {
+// HasCurrency returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -287,8 +287,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetConfigurationOk() (map[s
 	return o.Configuration, true
 }
 
-// &#39;Has&#39;Configuration returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Configuration() bool {
+// HasConfiguration returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasConfiguration() bool {
 	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}
@@ -319,8 +319,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetIsUpfrontOk() (*bool, bo
 	return o.IsUpfront, true
 }
 
-// &#39;Has&#39;IsUpfront returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;IsUpfront() bool {
+// HasIsUpfront returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasIsUpfront() bool {
 	if o != nil && !IsNil(o.IsUpfront) {
 		return true
 	}
@@ -351,8 +351,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetDescriptionOk() (*Paymen
 	return o.Description, true
 }
 
-// &#39;Has&#39;Description returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Description() bool {
+// HasDescription returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -383,8 +383,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetRestrictionsOk() ([]Paym
 	return o.Restrictions, true
 }
 
-// &#39;Has&#39;Restrictions returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;Restrictions() bool {
+// HasRestrictions returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasRestrictions() bool {
 	if o != nil && !IsNil(o.Restrictions) {
 		return true
 	}
@@ -415,8 +415,8 @@ func (o *PaymentprocessorUpdatePaymentMethodRequest) GetFieldMaskOk() (*string, 
 	return o.FieldMask, true
 }
 
-// &#39;Has&#39;FieldMask returns a boolean if a field has been set.
-func (o *PaymentprocessorUpdatePaymentMethodRequest) &#39;Has&#39;FieldMask() bool {
+// HasFieldMask returns a boolean if a field has been set.
+func (o *PaymentprocessorUpdatePaymentMethodRequest) HasFieldMask() bool {
 	if o != nil && !IsNil(o.FieldMask) {
 		return true
 	}

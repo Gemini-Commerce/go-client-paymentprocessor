@@ -72,8 +72,8 @@ func (o *PaymentprocessorPaymentMethodRestrictionCondition) GetContextPathOk() (
 	return o.ContextPath, true
 }
 
-// &#39;Has&#39;ContextPath returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestrictionCondition) &#39;Has&#39;ContextPath() bool {
+// HasContextPath returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestrictionCondition) HasContextPath() bool {
 	if o != nil && !IsNil(o.ContextPath) {
 		return true
 	}
@@ -104,8 +104,8 @@ func (o *PaymentprocessorPaymentMethodRestrictionCondition) GetActionOk() (*Cond
 	return o.Action, true
 }
 
-// &#39;Has&#39;Action returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestrictionCondition) &#39;Has&#39;Action() bool {
+// HasAction returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestrictionCondition) HasAction() bool {
 	if o != nil && !IsNil(o.Action) {
 		return true
 	}
@@ -136,8 +136,8 @@ func (o *PaymentprocessorPaymentMethodRestrictionCondition) GetConditionOk() (*P
 	return o.Condition, true
 }
 
-// &#39;Has&#39;Condition returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestrictionCondition) &#39;Has&#39;Condition() bool {
+// HasCondition returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestrictionCondition) HasCondition() bool {
 	if o != nil && !IsNil(o.Condition) {
 		return true
 	}
@@ -168,8 +168,8 @@ func (o *PaymentprocessorPaymentMethodRestrictionCondition) GetValuesOk() ([]str
 	return o.Values, true
 }
 
-// &#39;Has&#39;Values returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestrictionCondition) &#39;Has&#39;Values() bool {
+// HasValues returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestrictionCondition) HasValues() bool {
 	if o != nil && !IsNil(o.Values) {
 		return true
 	}

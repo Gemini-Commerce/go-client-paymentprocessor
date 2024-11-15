@@ -145,8 +145,8 @@ func (o *PaymentprocessorPerformRefundRequest) GetAmountOk() (*PaymentprocessorM
 	return o.Amount, true
 }
 
-// &#39;Has&#39;Amount returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformRefundRequest) &#39;Has&#39;Amount() bool {
+// HasAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformRefundRequest) HasAmount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -177,8 +177,8 @@ func (o *PaymentprocessorPerformRefundRequest) GetCurrencyOk() (*Paymentprocesso
 	return o.Currency, true
 }
 
-// &#39;Has&#39;Currency returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformRefundRequest) &#39;Has&#39;Currency() bool {
+// HasCurrency returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformRefundRequest) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}

@@ -116,8 +116,8 @@ func (o *PaymentprocessorPayment) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorPayment) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorPayment) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -148,8 +148,8 @@ func (o *PaymentprocessorPayment) GetTransactionsOk() ([]PaymentprocessorTransac
 	return o.Transactions, true
 }
 
-// &#39;Has&#39;Transactions returns a boolean if a field has been set.
-func (o *PaymentprocessorPayment) &#39;Has&#39;Transactions() bool {
+// HasTransactions returns a boolean if a field has been set.
+func (o *PaymentprocessorPayment) HasTransactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}

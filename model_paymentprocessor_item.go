@@ -85,8 +85,8 @@ func (o *PaymentprocessorItem) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -117,8 +117,8 @@ func (o *PaymentprocessorItem) GetProductGrnOk() (*string, bool) {
 	return o.ProductGrn, true
 }
 
-// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductGrn() bool {
+// HasProductGrn returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -149,8 +149,8 @@ func (o *PaymentprocessorItem) GetQtyOrderedOk() (*int64, bool) {
 	return o.QtyOrdered, true
 }
 
-// &#39;Has&#39;QtyOrdered returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;QtyOrdered() bool {
+// HasQtyOrdered returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasQtyOrdered() bool {
 	if o != nil && !IsNil(o.QtyOrdered) {
 		return true
 	}
@@ -181,8 +181,8 @@ func (o *PaymentprocessorItem) GetQtyCommittedOk() (*int64, bool) {
 	return o.QtyCommitted, true
 }
 
-// &#39;Has&#39;QtyCommitted returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;QtyCommitted() bool {
+// HasQtyCommitted returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasQtyCommitted() bool {
 	if o != nil && !IsNil(o.QtyCommitted) {
 		return true
 	}
@@ -213,8 +213,8 @@ func (o *PaymentprocessorItem) GetUnitSalePriceOk() (*PaymentprocessorMoney, boo
 	return o.UnitSalePrice, true
 }
 
-// &#39;Has&#39;UnitSalePrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;UnitSalePrice() bool {
+// HasUnitSalePrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasUnitSalePrice() bool {
 	if o != nil && !IsNil(o.UnitSalePrice) {
 		return true
 	}
@@ -245,8 +245,8 @@ func (o *PaymentprocessorItem) GetUnitListPriceOk() (*PaymentprocessorMoney, boo
 	return o.UnitListPrice, true
 }
 
-// &#39;Has&#39;UnitListPrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;UnitListPrice() bool {
+// HasUnitListPrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasUnitListPrice() bool {
 	if o != nil && !IsNil(o.UnitListPrice) {
 		return true
 	}
@@ -277,8 +277,8 @@ func (o *PaymentprocessorItem) GetUnitBasePriceOk() (*PaymentprocessorMoney, boo
 	return o.UnitBasePrice, true
 }
 
-// &#39;Has&#39;UnitBasePrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;UnitBasePrice() bool {
+// HasUnitBasePrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasUnitBasePrice() bool {
 	if o != nil && !IsNil(o.UnitBasePrice) {
 		return true
 	}
@@ -309,8 +309,8 @@ func (o *PaymentprocessorItem) GetUnitVatAmountOk() (*PaymentprocessorMoney, boo
 	return o.UnitVatAmount, true
 }
 
-// &#39;Has&#39;UnitVatAmount returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;UnitVatAmount() bool {
+// HasUnitVatAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasUnitVatAmount() bool {
 	if o != nil && !IsNil(o.UnitVatAmount) {
 		return true
 	}
@@ -341,8 +341,8 @@ func (o *PaymentprocessorItem) GetRowSalePriceOk() (*PaymentprocessorMoney, bool
 	return o.RowSalePrice, true
 }
 
-// &#39;Has&#39;RowSalePrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;RowSalePrice() bool {
+// HasRowSalePrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasRowSalePrice() bool {
 	if o != nil && !IsNil(o.RowSalePrice) {
 		return true
 	}
@@ -373,8 +373,8 @@ func (o *PaymentprocessorItem) GetRowListPriceOk() (*PaymentprocessorMoney, bool
 	return o.RowListPrice, true
 }
 
-// &#39;Has&#39;RowListPrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;RowListPrice() bool {
+// HasRowListPrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasRowListPrice() bool {
 	if o != nil && !IsNil(o.RowListPrice) {
 		return true
 	}
@@ -405,8 +405,8 @@ func (o *PaymentprocessorItem) GetRowVatAmountOk() (*PaymentprocessorMoney, bool
 	return o.RowVatAmount, true
 }
 
-// &#39;Has&#39;RowVatAmount returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;RowVatAmount() bool {
+// HasRowVatAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasRowVatAmount() bool {
 	if o != nil && !IsNil(o.RowVatAmount) {
 		return true
 	}
@@ -437,8 +437,8 @@ func (o *PaymentprocessorItem) GetDiscountAmountOk() (*PaymentprocessorMoney, bo
 	return o.DiscountAmount, true
 }
 
-// &#39;Has&#39;DiscountAmount returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;DiscountAmount() bool {
+// HasDiscountAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasDiscountAmount() bool {
 	if o != nil && !IsNil(o.DiscountAmount) {
 		return true
 	}
@@ -469,8 +469,8 @@ func (o *PaymentprocessorItem) GetRowBasePriceOk() (*PaymentprocessorMoney, bool
 	return o.RowBasePrice, true
 }
 
-// &#39;Has&#39;RowBasePrice returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;RowBasePrice() bool {
+// HasRowBasePrice returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasRowBasePrice() bool {
 	if o != nil && !IsNil(o.RowBasePrice) {
 		return true
 	}
@@ -501,8 +501,8 @@ func (o *PaymentprocessorItem) GetVatPercentageOk() (*float32, bool) {
 	return o.VatPercentage, true
 }
 
-// &#39;Has&#39;VatPercentage returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;VatPercentage() bool {
+// HasVatPercentage returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasVatPercentage() bool {
 	if o != nil && !IsNil(o.VatPercentage) {
 		return true
 	}
@@ -533,8 +533,8 @@ func (o *PaymentprocessorItem) GetVatInaccurateOk() (*bool, bool) {
 	return o.VatInaccurate, true
 }
 
-// &#39;Has&#39;VatInaccurate returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;VatInaccurate() bool {
+// HasVatInaccurate returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasVatInaccurate() bool {
 	if o != nil && !IsNil(o.VatInaccurate) {
 		return true
 	}
@@ -565,8 +565,8 @@ func (o *PaymentprocessorItem) GetVatCalculatedOk() (*bool, bool) {
 	return o.VatCalculated, true
 }
 
-// &#39;Has&#39;VatCalculated returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;VatCalculated() bool {
+// HasVatCalculated returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasVatCalculated() bool {
 	if o != nil && !IsNil(o.VatCalculated) {
 		return true
 	}
@@ -597,8 +597,8 @@ func (o *PaymentprocessorItem) GetProductNameOk() (*string, bool) {
 	return o.ProductName, true
 }
 
-// &#39;Has&#39;ProductName returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductName() bool {
+// HasProductName returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductName() bool {
 	if o != nil && !IsNil(o.ProductName) {
 		return true
 	}
@@ -629,8 +629,8 @@ func (o *PaymentprocessorItem) GetProductCodeOk() (*string, bool) {
 	return o.ProductCode, true
 }
 
-// &#39;Has&#39;ProductCode returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductCode() bool {
+// HasProductCode returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductCode() bool {
 	if o != nil && !IsNil(o.ProductCode) {
 		return true
 	}
@@ -661,8 +661,8 @@ func (o *PaymentprocessorItem) GetProductSkuOk() (*string, bool) {
 	return o.ProductSku, true
 }
 
-// &#39;Has&#39;ProductSku returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductSku() bool {
+// HasProductSku returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductSku() bool {
 	if o != nil && !IsNil(o.ProductSku) {
 		return true
 	}
@@ -693,8 +693,8 @@ func (o *PaymentprocessorItem) GetProductOptionsOk() (*string, bool) {
 	return o.ProductOptions, true
 }
 
-// &#39;Has&#39;ProductOptions returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductOptions() bool {
+// HasProductOptions returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductOptions() bool {
 	if o != nil && !IsNil(o.ProductOptions) {
 		return true
 	}
@@ -725,8 +725,8 @@ func (o *PaymentprocessorItem) GetProductImgOk() (*string, bool) {
 	return o.ProductImg, true
 }
 
-// &#39;Has&#39;ProductImg returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductImg() bool {
+// HasProductImg returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductImg() bool {
 	if o != nil && !IsNil(o.ProductImg) {
 		return true
 	}
@@ -757,8 +757,8 @@ func (o *PaymentprocessorItem) GetProductDataOk() (*string, bool) {
 	return o.ProductData, true
 }
 
-// &#39;Has&#39;ProductData returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductData() bool {
+// HasProductData returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductData() bool {
 	if o != nil && !IsNil(o.ProductData) {
 		return true
 	}
@@ -789,8 +789,8 @@ func (o *PaymentprocessorItem) GetShipmentInfoReferenceOk() (*string, bool) {
 	return o.ShipmentInfoReference, true
 }
 
-// &#39;Has&#39;ShipmentInfoReference returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ShipmentInfoReference() bool {
+// HasShipmentInfoReference returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasShipmentInfoReference() bool {
 	if o != nil && !IsNil(o.ShipmentInfoReference) {
 		return true
 	}
@@ -821,8 +821,8 @@ func (o *PaymentprocessorItem) GetPromotionGrnOk() ([]string, bool) {
 	return o.PromotionGrn, true
 }
 
-// &#39;Has&#39;PromotionGrn returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;PromotionGrn() bool {
+// HasPromotionGrn returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasPromotionGrn() bool {
 	if o != nil && !IsNil(o.PromotionGrn) {
 		return true
 	}
@@ -853,8 +853,8 @@ func (o *PaymentprocessorItem) GetProductIsVirtualOk() (*bool, bool) {
 	return o.ProductIsVirtual, true
 }
 
-// &#39;Has&#39;ProductIsVirtual returns a boolean if a field has been set.
-func (o *PaymentprocessorItem) &#39;Has&#39;ProductIsVirtual() bool {
+// HasProductIsVirtual returns a boolean if a field has been set.
+func (o *PaymentprocessorItem) HasProductIsVirtual() bool {
 	if o != nil && !IsNil(o.ProductIsVirtual) {
 		return true
 	}

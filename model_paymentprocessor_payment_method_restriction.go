@@ -61,8 +61,8 @@ func (o *PaymentprocessorPaymentMethodRestriction) GetConditionsOk() ([]Paymentp
 	return o.Conditions, true
 }
 
-// &#39;Has&#39;Conditions returns a boolean if a field has been set.
-func (o *PaymentprocessorPaymentMethodRestriction) &#39;Has&#39;Conditions() bool {
+// HasConditions returns a boolean if a field has been set.
+func (o *PaymentprocessorPaymentMethodRestriction) HasConditions() bool {
 	if o != nil && !IsNil(o.Conditions) {
 		return true
 	}

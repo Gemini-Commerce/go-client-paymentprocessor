@@ -61,8 +61,8 @@ func (o *PaymentprocessorListPaymentMethodsResponse) GetMethodsOk() ([]Paymentpr
 	return o.Methods, true
 }
 
-// &#39;Has&#39;Methods returns a boolean if a field has been set.
-func (o *PaymentprocessorListPaymentMethodsResponse) &#39;Has&#39;Methods() bool {
+// HasMethods returns a boolean if a field has been set.
+func (o *PaymentprocessorListPaymentMethodsResponse) HasMethods() bool {
 	if o != nil && !IsNil(o.Methods) {
 		return true
 	}

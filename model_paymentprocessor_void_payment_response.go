@@ -62,8 +62,8 @@ func (o *PaymentprocessorVoidPaymentResponse) GetTransactionOk() (*Paymentproces
 	return o.Transaction, true
 }
 
-// &#39;Has&#39;Transaction returns a boolean if a field has been set.
-func (o *PaymentprocessorVoidPaymentResponse) &#39;Has&#39;Transaction() bool {
+// HasTransaction returns a boolean if a field has been set.
+func (o *PaymentprocessorVoidPaymentResponse) HasTransaction() bool {
 	if o != nil && !IsNil(o.Transaction) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *PaymentprocessorVoidPaymentResponse) GetErrorMessageOk() (*string, bool
 	return o.ErrorMessage, true
 }
 
-// &#39;Has&#39;ErrorMessage returns a boolean if a field has been set.
-func (o *PaymentprocessorVoidPaymentResponse) &#39;Has&#39;ErrorMessage() bool {
+// HasErrorMessage returns a boolean if a field has been set.
+func (o *PaymentprocessorVoidPaymentResponse) HasErrorMessage() bool {
 	if o != nil && !IsNil(o.ErrorMessage) {
 		return true
 	}

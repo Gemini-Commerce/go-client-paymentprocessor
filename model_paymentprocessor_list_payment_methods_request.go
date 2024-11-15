@@ -88,8 +88,8 @@ func (o *PaymentprocessorListPaymentMethodsRequest) GetAuthenticateMethodsOk() (
 	return o.AuthenticateMethods, true
 }
 
-// &#39;Has&#39;AuthenticateMethods returns a boolean if a field has been set.
-func (o *PaymentprocessorListPaymentMethodsRequest) &#39;Has&#39;AuthenticateMethods() bool {
+// HasAuthenticateMethods returns a boolean if a field has been set.
+func (o *PaymentprocessorListPaymentMethodsRequest) HasAuthenticateMethods() bool {
 	if o != nil && !IsNil(o.AuthenticateMethods) {
 		return true
 	}

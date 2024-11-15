@@ -120,8 +120,8 @@ func (o *PaymentprocessorTransaction) GetTypeOk() (*PaymentprocessorTransactionT
 	return o.Type, true
 }
 
-// &#39;Has&#39;Type returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) &#39;Has&#39;Type() bool {
+// HasType returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) HasType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
@@ -152,8 +152,8 @@ func (o *PaymentprocessorTransaction) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -184,8 +184,8 @@ func (o *PaymentprocessorTransaction) GetChildTransactionsOk() ([]Paymentprocess
 	return o.ChildTransactions, true
 }
 
-// &#39;Has&#39;ChildTransactions returns a boolean if a field has been set.
-func (o *PaymentprocessorTransaction) &#39;Has&#39;ChildTransactions() bool {
+// HasChildTransactions returns a boolean if a field has been set.
+func (o *PaymentprocessorTransaction) HasChildTransactions() bool {
 	if o != nil && !IsNil(o.ChildTransactions) {
 		return true
 	}

@@ -125,8 +125,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetContextOk() (*Paymentprocesso
 	return o.Context, true
 }
 
-// &#39;Has&#39;Context returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Context() bool {
+// HasContext returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) HasContext() bool {
 	if o != nil && !IsNil(o.Context) {
 		return true
 	}
@@ -181,8 +181,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetAmountOk() (*Paymentprocessor
 	return o.Amount, true
 }
 
-// &#39;Has&#39;Amount returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Amount() bool {
+// HasAmount returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) HasAmount() bool {
 	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
@@ -213,8 +213,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetCurrencyOk() (*Paymentprocess
 	return o.Currency, true
 }
 
-// &#39;Has&#39;Currency returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Currency() bool {
+// HasCurrency returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -245,8 +245,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetAdditionalInfoOk() (*string, 
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -277,8 +277,8 @@ func (o *PaymentprocessorPerformPaymentRequest) GetTransactionsOk() ([]Paymentpr
 	return o.Transactions, true
 }
 
-// &#39;Has&#39;Transactions returns a boolean if a field has been set.
-func (o *PaymentprocessorPerformPaymentRequest) &#39;Has&#39;Transactions() bool {
+// HasTransactions returns a boolean if a field has been set.
+func (o *PaymentprocessorPerformPaymentRequest) HasTransactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}

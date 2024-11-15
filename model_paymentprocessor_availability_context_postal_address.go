@@ -66,8 +66,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetRegionCodeOk() (*s
 	return o.RegionCode, true
 }
 
-// &#39;Has&#39;RegionCode returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;RegionCode() bool {
+// HasRegionCode returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasRegionCode() bool {
 	if o != nil && !IsNil(o.RegionCode) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetPostalCodeOk() (*s
 	return o.PostalCode, true
 }
 
-// &#39;Has&#39;PostalCode returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;PostalCode() bool {
+// HasPostalCode returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasPostalCode() bool {
 	if o != nil && !IsNil(o.PostalCode) {
 		return true
 	}
@@ -130,8 +130,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetFirstnameOk() (*st
 	return o.Firstname, true
 }
 
-// &#39;Has&#39;Firstname returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;Firstname() bool {
+// HasFirstname returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasFirstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -162,8 +162,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetLastnameOk() (*str
 	return o.Lastname, true
 }
 
-// &#39;Has&#39;Lastname returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;Lastname() bool {
+// HasLastname returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasLastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -194,8 +194,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetAddressLinesOk() (
 	return o.AddressLines, true
 }
 
-// &#39;Has&#39;AddressLines returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;AddressLines() bool {
+// HasAddressLines returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasAddressLines() bool {
 	if o != nil && !IsNil(o.AddressLines) {
 		return true
 	}
@@ -226,8 +226,8 @@ func (o *PaymentprocessorAvailabilityContextPostalAddress) GetAdditionalInfoOk()
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContextPostalAddress) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContextPostalAddress) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

@@ -63,8 +63,8 @@ func (o *PaymentprocessorAvailabilityContext) GetShippingAddressOk() (*Paymentpr
 	return o.ShippingAddress, true
 }
 
-// &#39;Has&#39;ShippingAddress returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;ShippingAddress() bool {
+// HasShippingAddress returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) HasShippingAddress() bool {
 	if o != nil && !IsNil(o.ShippingAddress) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *PaymentprocessorAvailabilityContext) GetBillingAddressOk() (*Paymentpro
 	return o.BillingAddress, true
 }
 
-// &#39;Has&#39;BillingAddress returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;BillingAddress() bool {
+// HasBillingAddress returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) HasBillingAddress() bool {
 	if o != nil && !IsNil(o.BillingAddress) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *PaymentprocessorAvailabilityContext) GetCustomerOk() (*AvailabilityCont
 	return o.Customer, true
 }
 
-// &#39;Has&#39;Customer returns a boolean if a field has been set.
-func (o *PaymentprocessorAvailabilityContext) &#39;Has&#39;Customer() bool {
+// HasCustomer returns a boolean if a field has been set.
+func (o *PaymentprocessorAvailabilityContext) HasCustomer() bool {
 	if o != nil && !IsNil(o.Customer) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *AvailabilityContextCustomer) GetSegmentsOk() ([]string, bool) {
 	return o.Segments, true
 }
 
-// &#39;Has&#39;Segments returns a boolean if a field has been set.
-func (o *AvailabilityContextCustomer) &#39;Has&#39;Segments() bool {
+// HasSegments returns a boolean if a field has been set.
+func (o *AvailabilityContextCustomer) HasSegments() bool {
 	if o != nil && !IsNil(o.Segments) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *AvailabilityContextCustomer) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// &#39;Has&#39;Email returns a boolean if a field has been set.
-func (o *AvailabilityContextCustomer) &#39;Has&#39;Email() bool {
+// HasEmail returns a boolean if a field has been set.
+func (o *AvailabilityContextCustomer) HasEmail() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}

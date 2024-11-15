@@ -62,8 +62,8 @@ func (o *PaymentprocessorInitPaymentResponse) GetPayloadOk() (*string, bool) {
 	return o.Payload, true
 }
 
-// &#39;Has&#39;Payload returns a boolean if a field has been set.
-func (o *PaymentprocessorInitPaymentResponse) &#39;Has&#39;Payload() bool {
+// HasPayload returns a boolean if a field has been set.
+func (o *PaymentprocessorInitPaymentResponse) HasPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *PaymentprocessorInitPaymentResponse) GetErrorMessageOk() (*string, bool
 	return o.ErrorMessage, true
 }
 
-// &#39;Has&#39;ErrorMessage returns a boolean if a field has been set.
-func (o *PaymentprocessorInitPaymentResponse) &#39;Has&#39;ErrorMessage() bool {
+// HasErrorMessage returns a boolean if a field has been set.
+func (o *PaymentprocessorInitPaymentResponse) HasErrorMessage() bool {
 	if o != nil && !IsNil(o.ErrorMessage) {
 		return true
 	}
